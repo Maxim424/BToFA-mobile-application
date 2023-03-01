@@ -16,21 +16,52 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
         
-        // Navigation bar setup.
-        UINavigationBar.appearance().barStyle = .default
+        UITabBar.appearance().backgroundColor = .systemBackground
+        UITabBar.appearance().unselectedItemTintColor = .systemGray
         
-        // Navigation bar button setup.
-        UIBarButtonItem.appearance().tintColor = .white
-        
-        // Tab bar setup.
-        UITabBar.appearance().barTintColor = .black
-
-        
-        let loginNavController = UINavigationController(rootViewController: ViewController())
-        window.rootViewController = loginNavController
-        
+        let tabBarController = UITabBarController()
+                
+        tabBarController.viewControllers = [
+            createHomeViewController(),
+            createOperationsViewController(),
+            createProfileViewController()
+        ]
+        window.rootViewController = tabBarController
         self.window = window
         window.makeKeyAndVisible()
+    }
+    
+    func createHomeViewController() -> UINavigationController {
+        let homeViewController = HomeViewController()
+        homeViewController.tabBarItem = UITabBarItem(
+            title: "Главная",
+            image: UIImage(systemName: "house"),
+            tag: 0
+        )
+        
+        return UINavigationController(rootViewController: homeViewController)
+    }
+    
+    func createOperationsViewController() -> UINavigationController {
+        let operationsViewController = OperationsViewController()
+        operationsViewController.tabBarItem = UITabBarItem(
+            title: "Операции",
+            image: UIImage(systemName: "briefcase"),
+            tag: 0
+        )
+        
+        return UINavigationController(rootViewController: operationsViewController)
+    }
+    
+    func createProfileViewController() -> UINavigationController {
+        let profileViewController = ProfileViewController()
+        profileViewController.tabBarItem = UITabBarItem(
+            title: "Профиль",
+            image: UIImage(systemName: "person"),
+            tag: 0
+        )
+        
+        return UINavigationController(rootViewController: profileViewController)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
