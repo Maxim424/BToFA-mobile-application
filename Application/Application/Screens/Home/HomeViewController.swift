@@ -57,8 +57,22 @@ class HomeViewController: UIViewController {
         accountBalanceWidget.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
         accountBalanceWidget.pinLeft(to: view)
         accountBalanceWidget.pinRight(to: view)
-        
         accountBalanceWidget.setHeight(to: 200)
+        
+        accountBalanceWidget.transactionLogButton.addTarget(self, action: #selector(transactionLogButtonPressed), for: .touchUpInside)
+        accountBalanceWidget.putMoneyButton.addTarget(self, action: #selector(putMoneyButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc
+    private func transactionLogButtonPressed() {
+        let transactionLogViewController = TransactionLogViewController()
+        navigationController?.pushViewController(transactionLogViewController, animated: true)
+    }
+    
+    @objc
+    private func putMoneyButtonPressed() {
+        let putMoneyViewController = PutMoneyViewController()
+        navigationController?.pushViewController(putMoneyViewController, animated: true)
     }
 }
 

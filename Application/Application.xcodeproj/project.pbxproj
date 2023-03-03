@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F07107C29B20C1D00F62899 /* TransactionLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F07107B29B20C1D00F62899 /* TransactionLogViewController.swift */; };
+		4F07107E29B212DD00F62899 /* PutMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F07107D29B212DD00F62899 /* PutMoneyViewController.swift */; };
 		4F44607129B1E32B000E0FAD /* AccountBalanceWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */; };
 		4F44607529B1E54B000E0FAD /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44607429B1E54B000E0FAD /* UIView+Pin.swift */; };
 		4F44607729B1F54A000E0FAD /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44607629B1F54A000E0FAD /* AppConstants.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F07107B29B20C1D00F62899 /* TransactionLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLogViewController.swift; sourceTree = "<group>"; };
+		4F07107D29B212DD00F62899 /* PutMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutMoneyViewController.swift; sourceTree = "<group>"; };
 		4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBalanceWidget.swift; sourceTree = "<group>"; };
 		4F44607429B1E54B000E0FAD /* UIView+Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
 		4F44607629B1F54A000E0FAD /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 			children = (
 				4F5D4FDE29AE4063003EFAA1 /* HomeViewController.swift */,
 				4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */,
+				4F07107B29B20C1D00F62899 /* TransactionLogViewController.swift */,
+				4F07107D29B212DD00F62899 /* PutMoneyViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -316,11 +322,13 @@
 				4F82B2F229AF906400C1DD10 /* OperationsViewController.swift in Sources */,
 				4F5D4FDF29AE4063003EFAA1 /* HomeViewController.swift in Sources */,
 				4F44607129B1E32B000E0FAD /* AccountBalanceWidget.swift in Sources */,
+				4F07107C29B20C1D00F62899 /* TransactionLogViewController.swift in Sources */,
 				4F44607729B1F54A000E0FAD /* AppConstants.swift in Sources */,
 				4F82B2F429AF907100C1DD10 /* ProfileViewController.swift in Sources */,
 				4F5D4FDB29AE4063003EFAA1 /* AppDelegate.swift in Sources */,
 				4F44607529B1E54B000E0FAD /* UIView+Pin.swift in Sources */,
 				4F5D4FDD29AE4063003EFAA1 /* SceneDelegate.swift in Sources */,
+				4F07107E29B212DD00F62899 /* PutMoneyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
