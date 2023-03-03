@@ -8,11 +8,21 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    // MARK: - Properties.
+    
+    private let accountBalanceWidget = AccountBalanceWidget()
 
+    // MARK: - viewDidLoad function.
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
+        
+        setupViews()
     }
+    
+    // MARK: - viewWillAppear function.
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -28,8 +38,27 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.topItem?.title = "Главная"
     }
     
+    // MARK: - Setup StatusBar.
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
+    }
+    
+    // MARK: - Setup Views.
+    
+    private func setupViews() {
+        setupAccountBalanceWidget()
+    }
+    
+    // MARK: - Setup AccountBalanceWidget.
+    
+    private func setupAccountBalanceWidget() {
+        view.addSubview(accountBalanceWidget)
+        accountBalanceWidget.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+        accountBalanceWidget.pinLeft(to: view)
+        accountBalanceWidget.pinRight(to: view)
+        
+        accountBalanceWidget.setHeight(to: 200)
     }
 }
 

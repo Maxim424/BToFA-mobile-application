@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F44607129B1E32B000E0FAD /* AccountBalanceWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */; };
+		4F44607529B1E54B000E0FAD /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44607429B1E54B000E0FAD /* UIView+Pin.swift */; };
+		4F44607729B1F54A000E0FAD /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44607629B1F54A000E0FAD /* AppConstants.swift */; };
 		4F5D4FDB29AE4063003EFAA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D4FDA29AE4063003EFAA1 /* AppDelegate.swift */; };
 		4F5D4FDD29AE4063003EFAA1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D4FDC29AE4063003EFAA1 /* SceneDelegate.swift */; };
 		4F5D4FDF29AE4063003EFAA1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D4FDE29AE4063003EFAA1 /* HomeViewController.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBalanceWidget.swift; sourceTree = "<group>"; };
+		4F44607429B1E54B000E0FAD /* UIView+Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
+		4F44607629B1F54A000E0FAD /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		4F5D4FD729AE4063003EFAA1 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5D4FDA29AE4063003EFAA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F5D4FDC29AE4063003EFAA1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +82,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F44606D29B1E2C7000E0FAD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4F5D4FDE29AE4063003EFAA1 /* HomeViewController.swift */,
+				4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4F44606E29B1E2D4000E0FAD /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				4F82B2F129AF906400C1DD10 /* OperationsViewController.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		4F44606F29B1E2DF000E0FAD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4F82B2F329AF907100C1DD10 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		4F44607229B1E50A000E0FAD /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				4F44607329B1E516000E0FAD /* Extensions */,
+				4F44607629B1F54A000E0FAD /* AppConstants.swift */,
+			);
+			path = CommonUI;
+			sourceTree = "<group>";
+		};
+		4F44607329B1E516000E0FAD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4F44607429B1E54B000E0FAD /* UIView+Pin.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4F5D4FCE29AE4063003EFAA1 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +147,7 @@
 		4F5D4FD929AE4063003EFAA1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				4F44607229B1E50A000E0FAD /* CommonUI */,
 				4F82B2F029AF8FE700C1DD10 /* Screens */,
 				4F5D4FDA29AE4063003EFAA1 /* AppDelegate.swift */,
 				4F5D4FDC29AE4063003EFAA1 /* SceneDelegate.swift */,
@@ -128,9 +177,9 @@
 		4F82B2F029AF8FE700C1DD10 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				4F5D4FDE29AE4063003EFAA1 /* HomeViewController.swift */,
-				4F82B2F129AF906400C1DD10 /* OperationsViewController.swift */,
-				4F82B2F329AF907100C1DD10 /* ProfileViewController.swift */,
+				4F44606F29B1E2DF000E0FAD /* Profile */,
+				4F44606E29B1E2D4000E0FAD /* Operations */,
+				4F44606D29B1E2C7000E0FAD /* Home */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -266,8 +315,11 @@
 			files = (
 				4F82B2F229AF906400C1DD10 /* OperationsViewController.swift in Sources */,
 				4F5D4FDF29AE4063003EFAA1 /* HomeViewController.swift in Sources */,
+				4F44607129B1E32B000E0FAD /* AccountBalanceWidget.swift in Sources */,
+				4F44607729B1F54A000E0FAD /* AppConstants.swift in Sources */,
 				4F82B2F429AF907100C1DD10 /* ProfileViewController.swift in Sources */,
 				4F5D4FDB29AE4063003EFAA1 /* AppDelegate.swift in Sources */,
+				4F44607529B1E54B000E0FAD /* UIView+Pin.swift in Sources */,
 				4F5D4FDD29AE4063003EFAA1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
