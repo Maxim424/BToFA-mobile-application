@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     // MARK: - Properties.
     
     private let accountBalanceWidget = AccountBalanceWidget()
+    private let tokensWidget = TokensWidget()
 
     // MARK: - viewDidLoad function.
     
@@ -48,6 +49,7 @@ class HomeViewController: UIViewController {
     
     private func setupViews() {
         setupAccountBalanceWidget()
+        setupTokensWidget()
     }
     
     // MARK: - Setup AccountBalanceWidget.
@@ -61,6 +63,16 @@ class HomeViewController: UIViewController {
         
         accountBalanceWidget.transactionLogButton.addTarget(self, action: #selector(transactionLogButtonPressed), for: .touchUpInside)
         accountBalanceWidget.putMoneyButton.addTarget(self, action: #selector(putMoneyButtonPressed), for: .touchUpInside)
+    }
+    
+    // MARK: - Setup TokensWidget.
+    
+    private func setupTokensWidget() {
+        view.addSubview(tokensWidget)
+        tokensWidget.pinTop(to: accountBalanceWidget.bottomAnchor, 10)
+        tokensWidget.pinLeft(to: view)
+        tokensWidget.pinRight(to: view)
+        tokensWidget.setHeight(to: 200)
     }
     
     @objc
