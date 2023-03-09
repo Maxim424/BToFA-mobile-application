@@ -19,6 +19,8 @@
 		4F5D4FF229AE4064003EFAA1 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D4FF129AE4064003EFAA1 /* ApplicationTests.swift */; };
 		4F5D4FFC29AE4064003EFAA1 /* ApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D4FFB29AE4064003EFAA1 /* ApplicationUITests.swift */; };
 		4F5D4FFE29AE4064003EFAA1 /* ApplicationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D4FFD29AE4064003EFAA1 /* ApplicationUITestsLaunchTests.swift */; };
+		4F5F2A3B29BA6AED00D38E21 /* PaymentCalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F2A3A29BA6AED00D38E21 /* PaymentCalendarWidget.swift */; };
+		4F5F2A3D29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F2A3C29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift */; };
 		4F69D0AD29B7AC1D0008489A /* TokensWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69D0AC29B7AC1D0008489A /* TokensWidget.swift */; };
 		4F69D0AF29B7AF410008489A /* TokenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69D0AE29B7AF410008489A /* TokenTableViewCell.swift */; };
 		4F82B2F229AF906400C1DD10 /* OperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F82B2F129AF906400C1DD10 /* OperationsViewController.swift */; };
@@ -59,6 +61,8 @@
 		4F5D4FF729AE4064003EFAA1 /* ApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F5D4FFB29AE4064003EFAA1 /* ApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUITests.swift; sourceTree = "<group>"; };
 		4F5D4FFD29AE4064003EFAA1 /* ApplicationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4F5F2A3A29BA6AED00D38E21 /* PaymentCalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCalendarWidget.swift; sourceTree = "<group>"; };
+		4F5F2A3C29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCalendarTableViewCell.swift; sourceTree = "<group>"; };
 		4F69D0AC29B7AC1D0008489A /* TokensWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensWidget.swift; sourceTree = "<group>"; };
 		4F69D0AE29B7AF410008489A /* TokenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTableViewCell.swift; sourceTree = "<group>"; };
 		4F82B2F129AF906400C1DD10 /* OperationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 				4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */,
 				4F69D0AC29B7AC1D0008489A /* TokensWidget.swift */,
 				4F69D0AE29B7AF410008489A /* TokenTableViewCell.swift */,
+				4F5F2A3A29BA6AED00D38E21 /* PaymentCalendarWidget.swift */,
+				4F5F2A3C29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F5F2A3D29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift in Sources */,
 				4F82B2F229AF906400C1DD10 /* OperationsViewController.swift in Sources */,
 				4F5D4FDF29AE4063003EFAA1 /* HomeViewController.swift in Sources */,
 				4F44607129B1E32B000E0FAD /* AccountBalanceWidget.swift in Sources */,
@@ -352,6 +359,7 @@
 				4F5D4FDB29AE4063003EFAA1 /* AppDelegate.swift in Sources */,
 				4F44607529B1E54B000E0FAD /* UIView+Pin.swift in Sources */,
 				4F5D4FDD29AE4063003EFAA1 /* SceneDelegate.swift in Sources */,
+				4F5F2A3B29BA6AED00D38E21 /* PaymentCalendarWidget.swift in Sources */,
 				4F07107E29B212DD00F62899 /* PutMoneyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

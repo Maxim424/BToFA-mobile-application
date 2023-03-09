@@ -1,13 +1,13 @@
 //
-//  TokensWidget.swift
+//  PaymentCalendarWidget.swift
 //  Application
 //
-//  Created by Максим Кузнецов on 07.03.2023.
+//  Created by Максим Кузнецов on 09.03.2023.
 //
 
 import UIKit
 
-final class TokensWidget: UIView {
+final class PaymentCalendarWidget: UIView {
     
     // MARK: - Properties.
     
@@ -40,7 +40,7 @@ final class TokensWidget: UIView {
         headerLabel.pinTop(to: self, 16)
         headerLabel.pinLeft(to: self, 16)
         
-        headerLabel.text = "Портфель"
+        headerLabel.text = "Календарь выплат"
         headerLabel.textAlignment = .left
         headerLabel.font = .systemFont(ofSize: 24, weight: .medium)
         headerLabel.textColor = .label
@@ -50,7 +50,7 @@ final class TokensWidget: UIView {
     // MARK: - TableView setup.
         
     private func setupTableView() {
-        tableView.register(TokenTableViewCell.self, forCellReuseIdentifier: TokenTableViewCell.reuseIdentifier)
+        tableView.register(PaymentCalendarTableViewCell.self, forCellReuseIdentifier: PaymentCalendarTableViewCell.reuseIdentifier)
         setupTableViewAppearance()
         tableView.dataSource = self
         tableView.delegate = self
@@ -79,7 +79,7 @@ final class TokensWidget: UIView {
 
 // MARK: - Delegate extension.
 
-extension TokensWidget: UITableViewDelegate {
+extension PaymentCalendarWidget: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }
@@ -87,7 +87,7 @@ extension TokensWidget: UITableViewDelegate {
 
 // MARK: - DataSource extension.
 
-extension TokensWidget: UITableViewDataSource {
+extension PaymentCalendarWidget: UITableViewDataSource {
     
     // MARK: - Setup number of sections.
     
@@ -95,7 +95,7 @@ extension TokensWidget: UITableViewDataSource {
         return 1
     }
     
-    // MARK: - Cell number.
+    // MARK: - Cells number.
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -112,14 +112,15 @@ extension TokensWidget: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         default:
-            if let tokenCell = tableView.dequeueReusableCell(withIdentifier: TokenTableViewCell.reuseIdentifier, for: indexPath) as? TokenTableViewCell {
+            if let calendarCell = tableView.dequeueReusableCell(withIdentifier: PaymentCalendarTableViewCell.reuseIdentifier, for: indexPath) as? PaymentCalendarTableViewCell {
                 
                 
-                return tokenCell
+                return calendarCell
             }
         }
         
         return UITableViewCell()
     }
 }
+
 

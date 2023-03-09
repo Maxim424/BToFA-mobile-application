@@ -13,6 +13,7 @@ class HomeViewController: UIViewController {
     
     private let accountBalanceWidget = AccountBalanceWidget()
     private let tokensWidget = TokensWidget()
+    private let paymentCalendarWidget = PaymentCalendarWidget()
 
     // MARK: - viewDidLoad function.
     
@@ -50,6 +51,7 @@ class HomeViewController: UIViewController {
     private func setupViews() {
         setupAccountBalanceWidget()
         setupTokensWidget()
+        setupPaymentCalendarWidget()
     }
     
     // MARK: - Setup AccountBalanceWidget.
@@ -59,7 +61,7 @@ class HomeViewController: UIViewController {
         accountBalanceWidget.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
         accountBalanceWidget.pinLeft(to: view)
         accountBalanceWidget.pinRight(to: view)
-        accountBalanceWidget.setHeight(to: 200)
+        accountBalanceWidget.setHeight(to: 166)
         
         accountBalanceWidget.transactionLogButton.addTarget(self, action: #selector(transactionLogButtonPressed), for: .touchUpInside)
         accountBalanceWidget.putMoneyButton.addTarget(self, action: #selector(putMoneyButtonPressed), for: .touchUpInside)
@@ -73,6 +75,16 @@ class HomeViewController: UIViewController {
         tokensWidget.pinLeft(to: view)
         tokensWidget.pinRight(to: view)
         tokensWidget.setHeight(to: 200)
+    }
+    
+    // MARK: - Setup PaymentCalendarWidget.
+    
+    private func setupPaymentCalendarWidget() {
+        view.addSubview(paymentCalendarWidget)
+        paymentCalendarWidget.pinTop(to: tokensWidget.bottomAnchor, 10)
+        paymentCalendarWidget.pinLeft(to: view)
+        paymentCalendarWidget.pinRight(to: view)
+        paymentCalendarWidget.setHeight(to: 200)
     }
     
     @objc

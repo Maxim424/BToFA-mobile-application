@@ -7,12 +7,12 @@
 
 import UIKit
 
-// MARK: - HomeTableViewCell class.
+// MARK: - TokenTableViewCell class.
 
 final class TokenTableViewCell: UITableViewCell {
     
     static let reuseIdentifier = "TokenTableViewCell"
-    private let iconView = UIImageView(image: UIImage(systemName: "bitcoinsign.square"))
+    private let iconView = UIImageView(image: UIImage(systemName: "bitcoinsign.circle"))
     private let headerLabel = UILabel()
     private let datetimeLabel = UILabel()
     
@@ -58,7 +58,7 @@ final class TokenTableViewCell: UITableViewCell {
         datetimeLabel.pinRight(to: self, 16)
         datetimeLabel.pinCenterY(to: self)
         
-        datetimeLabel.text = "дата выпуска 13.01.2023"
+        datetimeLabel.text = "дата выпуска: 13.01.2023"
         datetimeLabel.textAlignment = .right
         datetimeLabel.font = .systemFont(ofSize: 16, weight: .medium)
         datetimeLabel.textColor = .systemGray
