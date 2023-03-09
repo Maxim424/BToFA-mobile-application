@@ -58,7 +58,7 @@ final class TokenTableViewCell: UITableViewCell {
         datetimeLabel.pinRight(to: self, 16)
         datetimeLabel.pinCenterY(to: self)
         
-        datetimeLabel.text = "дата выпуска: 13.01.2023"
+        datetimeLabel.text = "выпущен: 13.01.2023"
         datetimeLabel.textAlignment = .right
         datetimeLabel.font = .systemFont(ofSize: 16, weight: .medium)
         datetimeLabel.textColor = .systemGray
