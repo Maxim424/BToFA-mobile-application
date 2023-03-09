@@ -21,6 +21,8 @@
 		4F5D4FFE29AE4064003EFAA1 /* ApplicationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D4FFD29AE4064003EFAA1 /* ApplicationUITestsLaunchTests.swift */; };
 		4F5F2A3B29BA6AED00D38E21 /* PaymentCalendarWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F2A3A29BA6AED00D38E21 /* PaymentCalendarWidget.swift */; };
 		4F5F2A3D29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F2A3C29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift */; };
+		4F5F2A3F29BA784700D38E21 /* WidgetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F2A3E29BA784700D38E21 /* WidgetCollectionViewCell.swift */; };
+		4F5F2A4129BA789B00D38E21 /* WidgetCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5F2A4029BA789B00D38E21 /* WidgetCollectionView.swift */; };
 		4F69D0AD29B7AC1D0008489A /* TokensWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69D0AC29B7AC1D0008489A /* TokensWidget.swift */; };
 		4F69D0AF29B7AF410008489A /* TokenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69D0AE29B7AF410008489A /* TokenTableViewCell.swift */; };
 		4F82B2F229AF906400C1DD10 /* OperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F82B2F129AF906400C1DD10 /* OperationsViewController.swift */; };
@@ -63,6 +65,8 @@
 		4F5D4FFD29AE4064003EFAA1 /* ApplicationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4F5F2A3A29BA6AED00D38E21 /* PaymentCalendarWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCalendarWidget.swift; sourceTree = "<group>"; };
 		4F5F2A3C29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCalendarTableViewCell.swift; sourceTree = "<group>"; };
+		4F5F2A3E29BA784700D38E21 /* WidgetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F5F2A4029BA789B00D38E21 /* WidgetCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollectionView.swift; sourceTree = "<group>"; };
 		4F69D0AC29B7AC1D0008489A /* TokensWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensWidget.swift; sourceTree = "<group>"; };
 		4F69D0AE29B7AF410008489A /* TokenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTableViewCell.swift; sourceTree = "<group>"; };
 		4F82B2F129AF906400C1DD10 /* OperationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 				4F69D0AE29B7AF410008489A /* TokenTableViewCell.swift */,
 				4F5F2A3A29BA6AED00D38E21 /* PaymentCalendarWidget.swift */,
 				4F5F2A3C29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift */,
+				4F5F2A3E29BA784700D38E21 /* WidgetCollectionViewCell.swift */,
+				4F5F2A4029BA789B00D38E21 /* WidgetCollectionView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F5F2A4129BA789B00D38E21 /* WidgetCollectionView.swift in Sources */,
 				4F5F2A3D29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift in Sources */,
 				4F82B2F229AF906400C1DD10 /* OperationsViewController.swift in Sources */,
 				4F5D4FDF29AE4063003EFAA1 /* HomeViewController.swift in Sources */,
@@ -355,6 +362,7 @@
 				4F44607729B1F54A000E0FAD /* AppConstants.swift in Sources */,
 				4F69D0AD29B7AC1D0008489A /* TokensWidget.swift in Sources */,
 				4F82B2F429AF907100C1DD10 /* ProfileViewController.swift in Sources */,
+				4F5F2A3F29BA784700D38E21 /* WidgetCollectionViewCell.swift in Sources */,
 				4F69D0AF29B7AF410008489A /* TokenTableViewCell.swift in Sources */,
 				4F5D4FDB29AE4063003EFAA1 /* AppDelegate.swift in Sources */,
 				4F44607529B1E54B000E0FAD /* UIView+Pin.swift in Sources */,

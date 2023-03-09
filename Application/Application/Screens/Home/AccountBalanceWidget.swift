@@ -7,10 +7,11 @@
 
 import UIKit
 
-class AccountBalanceWidget: UIView {
+class AccountBalanceWidget: UITableViewCell {
     
     // MARK: - Properties.
     
+    static let reuseIdentifier = "AccountBalanceWidget"
     private let headerLabel = UILabel()
     private let accountBalanceLabel = UILabel()
     public let transactionLogButton = UIButton(type: .system)
@@ -18,8 +19,9 @@ class AccountBalanceWidget: UIView {
     
     // MARK: - Initialisers.
 
-    init() {
-        super.init(frame: .zero)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
         setupView()
     }
     

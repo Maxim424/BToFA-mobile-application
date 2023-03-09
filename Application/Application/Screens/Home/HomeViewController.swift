@@ -11,6 +11,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties.
     
+    private let tableView = UITableView()
     private let accountBalanceWidget = AccountBalanceWidget()
     private let tokensWidget = TokensWidget()
     private let paymentCalendarWidget = PaymentCalendarWidget()
@@ -49,9 +50,38 @@ class HomeViewController: UIViewController {
     // MARK: - Setup Views.
     
     private func setupViews() {
-        setupAccountBalanceWidget()
-        setupTokensWidget()
-        setupPaymentCalendarWidget()
+//        setupAccountBalanceWidget()
+//        setupTokensWidget()
+//        setupPaymentCalendarWidget()
+        setupTableView()
+    }
+    
+    // MARK: - TableView setup.
+        
+    private func setupTableView() {
+        tableView.register(AccountBalanceWidget.self, forCellReuseIdentifier: AccountBalanceWidget.reuseIdentifier)
+        setupTableViewAppearance()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.contentInsetAdjustmentBehavior = .never
+        setupTableViewPosition()
+    }
+    
+    // MARK: - TableView setup.
+    
+    private func setupTableViewAppearance() {
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .singleLine
+        tableView.keyboardDismissMode = .onDrag
+        tableView.showsVerticalScrollIndicator = false
+    }
+    
+    private func setupTableViewPosition() {
+        view.addSubview(tableView)
+        tableView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
+        tableView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
+        tableView.pinLeft(to: view)
+        tableView.pinRight(to: view)
     }
     
     // MARK: - Setup AccountBalanceWidget.
@@ -99,4 +129,63 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(putMoneyViewController, animated: true)
     }
 }
+
+// MARK: - Delegate extension.
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+}
+
+
+// MARK: - DataSource extension.
+
+extension HomeViewController: UITableViewDataSource {
+    
+    // MARK: - Setup number of sections.
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    // MARK: - Cells number.
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    // MARK: - Setup cell height.
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 166
+        } else {
+            return 200
+        }
+    }
+    
+    // MARK: - Setup cells.
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            if let accountWidgetCell = tableView.dequeueReusableCell(withIdentifier: AccountBalanceWidget.reuseIdentifier, for: indexPath) as? AccountBalanceWidget {
+                return accountWidgetCell
+            }
+        case 1:
+            if let accountWidgetCell = tableView.dequeueReusableCell(withIdentifier: AccountBalanceWidget.reuseIdentifier, for: indexPath) as? AccountBalanceWidget {
+                return accountWidgetCell
+            }
+        case 2:
+            if let accountWidgetCell = tableView.dequeueReusableCell(withIdentifier: AccountBalanceWidget.reuseIdentifier, for: indexPath) as? AccountBalanceWidget {
+                return accountWidgetCell
+            }
+        default:
+            return UITableViewCell()
+        }
+        return UITableViewCell()
+    }
+}
+
+
 
