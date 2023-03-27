@@ -7,10 +7,11 @@
 
 import UIKit
 
-class AccountBalanceWidget: UIView {
+class AccountBalanceWidget: UITableViewCell {
     
     // MARK: - Properties.
     
+    static let reuseIdentifier = "AccountBalanceWidget"
     private let headerLabel = UILabel()
     private let accountBalanceLabel = UILabel()
     public let transactionLogButton = UIButton(type: .system)
@@ -18,8 +19,9 @@ class AccountBalanceWidget: UIView {
     
     // MARK: - Initialisers.
 
-    init() {
-        super.init(frame: .zero)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
         setupView()
     }
     
@@ -27,7 +29,15 @@ class AccountBalanceWidget: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - layoutSubviews function.
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+    }
+    
     private func setupView() {
+        contentView.isUserInteractionEnabled = true
         backgroundColor = .systemBackground
         self.layer.cornerRadius = 15
         

@@ -7,17 +7,19 @@
 
 import UIKit
 
-final class PaymentCalendarWidget: UIView {
+final class PaymentCalendarWidget: UITableViewCell {
     
     // MARK: - Properties.
     
+    static let reuseIdentifier = "PaymentCalendarWidget"
     private let tableView = UITableView()
     private let headerLabel = UILabel()
     
     // MARK: - Initialization
-      
-    init() {
-        super.init(frame: .zero)
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
         setupViews()
     }
     
@@ -25,9 +27,17 @@ final class PaymentCalendarWidget: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - layoutSubviews function.
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+    }
+    
     // MARK: - Views setup.
     
     private func setupViews() {
+        contentView.isUserInteractionEnabled = true
         backgroundColor = .systemBackground
         self.layer.cornerRadius = 15
         setupHeaderLabel()

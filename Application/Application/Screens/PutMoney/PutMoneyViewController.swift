@@ -14,8 +14,7 @@ class PutMoneyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
-        
-//        setupViews()
+        setupNavBar()
     }
     
     // MARK: - viewWillAppear function.
@@ -23,6 +22,14 @@ class PutMoneyViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "Пополнить баланс"
+    }
+    
+    // MARK: - setupNavBar function.
+    
+    private func setupNavBar() {
+        let closeButton = UIButton(type: .close)
+        closeButton.addTarget(self, action: #selector(dismissViewController(_:)), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: closeButton)
     }
     
     @objc

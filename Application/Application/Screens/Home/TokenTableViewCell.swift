@@ -28,6 +28,7 @@ final class TokenTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
+        contentView.isUserInteractionEnabled = true
         backgroundColor = .clear
         setupImage()
         setupHeaderLabel()
