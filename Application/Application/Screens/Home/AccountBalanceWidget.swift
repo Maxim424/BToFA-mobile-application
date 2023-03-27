@@ -29,7 +29,15 @@ class AccountBalanceWidget: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - layoutSubviews function.
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+    }
+    
     private func setupView() {
+        contentView.isUserInteractionEnabled = true
         backgroundColor = .systemBackground
         self.layer.cornerRadius = 15
         

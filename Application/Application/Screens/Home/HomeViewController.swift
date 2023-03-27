@@ -50,9 +50,6 @@ class HomeViewController: UIViewController {
     // MARK: - Setup Views.
     
     private func setupViews() {
-//        setupAccountBalanceWidget()
-//        setupTokensWidget()
-//        setupPaymentCalendarWidget()
         setupTableView()
     }
     
@@ -60,10 +57,13 @@ class HomeViewController: UIViewController {
         
     private func setupTableView() {
         tableView.register(AccountBalanceWidget.self, forCellReuseIdentifier: AccountBalanceWidget.reuseIdentifier)
+        tableView.register(TokensWidget.self, forCellReuseIdentifier: TokensWidget.reuseIdentifier)
+        tableView.register(PaymentCalendarWidget.self, forCellReuseIdentifier: PaymentCalendarWidget.reuseIdentifier)
         setupTableViewAppearance()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.contentInsetAdjustmentBehavior = .never
+        tableView.isUserInteractionEnabled = true
         setupTableViewPosition()
     }
     
@@ -84,49 +84,20 @@ class HomeViewController: UIViewController {
         tableView.pinRight(to: view)
     }
     
-    // MARK: - Setup AccountBalanceWidget.
-    
-    private func setupAccountBalanceWidget() {
-        view.addSubview(accountBalanceWidget)
-        accountBalanceWidget.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
-        accountBalanceWidget.pinLeft(to: view)
-        accountBalanceWidget.pinRight(to: view)
-        accountBalanceWidget.setHeight(to: 166)
-        
-        accountBalanceWidget.transactionLogButton.addTarget(self, action: #selector(transactionLogButtonPressed), for: .touchUpInside)
-        accountBalanceWidget.putMoneyButton.addTarget(self, action: #selector(putMoneyButtonPressed), for: .touchUpInside)
-    }
-    
-    // MARK: - Setup TokensWidget.
-    
-    private func setupTokensWidget() {
-        view.addSubview(tokensWidget)
-        tokensWidget.pinTop(to: accountBalanceWidget.bottomAnchor, 10)
-        tokensWidget.pinLeft(to: view)
-        tokensWidget.pinRight(to: view)
-        tokensWidget.setHeight(to: 200)
-    }
-    
-    // MARK: - Setup PaymentCalendarWidget.
-    
-    private func setupPaymentCalendarWidget() {
-        view.addSubview(paymentCalendarWidget)
-        paymentCalendarWidget.pinTop(to: tokensWidget.bottomAnchor, 10)
-        paymentCalendarWidget.pinLeft(to: view)
-        paymentCalendarWidget.pinRight(to: view)
-        paymentCalendarWidget.setHeight(to: 200)
-    }
-    
     @objc
     private func transactionLogButtonPressed() {
         let transactionLogViewController = TransactionLogViewController()
-        navigationController?.pushViewController(transactionLogViewController, animated: true)
+        let navController = UINavigationController(rootViewController: transactionLogViewController)
+        navigationController?.present(navController, animated: true)
+//        navigationController?.pushViewController(transactionLogViewController, animated: true)
     }
     
     @objc
     private func putMoneyButtonPressed() {
         let putMoneyViewController = PutMoneyViewController()
-        navigationController?.pushViewController(putMoneyViewController, animated: true)
+        let navController = UINavigationController(rootViewController: putMoneyViewController)
+        navigationController?.present(navController, animated: true)
+//        navigationController?.pushViewController(putMoneyViewController, animated: true)
     }
 }
 
@@ -170,20 +141,34 @@ extension HomeViewController: UITableViewDataSource {
         switch indexPath.row {
         case 0:
             if let accountWidgetCell = tableView.dequeueReusableCell(withIdentifier: AccountBalanceWidget.reuseIdentifier, for: indexPath) as? AccountBalanceWidget {
+                accountWidgetCell.isUserInteractionEnabled = true
+                accountWidgetCell.putMoneyButton.addTarget(self, action: #selector(putMoneyButtonPressed), for: .touchUpInside)
+                accountWidgetCell.transactionLogButton.addTarget(self, action: #selector(transactionLogButtonPressed), for: .touchUpInside)
+                setBorders(cell: accountWidgetCell)
                 return accountWidgetCell
             }
         case 1:
-            if let accountWidgetCell = tableView.dequeueReusableCell(withIdentifier: AccountBalanceWidget.reuseIdentifier, for: indexPath) as? AccountBalanceWidget {
-                return accountWidgetCell
+            if let tokensWidget = tableView.dequeueReusableCell(withIdentifier: TokensWidget.reuseIdentifier, for: indexPath) as? TokensWidget {
+                tokensWidget.isUserInteractionEnabled = true
+                setBorders(cell: tokensWidget)
+                return tokensWidget
             }
         case 2:
-            if let accountWidgetCell = tableView.dequeueReusableCell(withIdentifier: AccountBalanceWidget.reuseIdentifier, for: indexPath) as? AccountBalanceWidget {
-                return accountWidgetCell
+            if let paymentCalendarWidget = tableView.dequeueReusableCell(withIdentifier: PaymentCalendarWidget.reuseIdentifier, for: indexPath) as? PaymentCalendarWidget {
+                paymentCalendarWidget.isUserInteractionEnabled = true
+                setBorders(cell: paymentCalendarWidget)
+                return paymentCalendarWidget
             }
         default:
             return UITableViewCell()
         }
         return UITableViewCell()
+    }
+    
+    private func setBorders(cell: UITableViewCell) {
+        cell.layer.borderColor = UIColor.secondarySystemBackground.cgColor
+        cell.layer.borderWidth = 5
+        cell.clipsToBounds = true
     }
 }
 
