@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.contentInsetAdjustmentBehavior = .never
-//        tableView.isUserInteractionEnabled = true
+        tableView.allowsMultipleSelection = false
         setupTableViewPosition()
     }
     
@@ -177,6 +177,7 @@ extension HomeViewController : UITableViewDataSource {
                 content.text = "Transactions history"
                 content.image = UIImage(systemName: "clock.fill")
                 cell.contentConfiguration = content
+                cell.accessoryType = .disclosureIndicator
                 return UITableViewCell()
             } else if indexPath.row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
@@ -184,6 +185,7 @@ extension HomeViewController : UITableViewDataSource {
                 content.text = "Put money"
                 content.image = UIImage(systemName: "dollarsign.circle.fill")
                 cell.contentConfiguration = content
+                cell.accessoryType = .disclosureIndicator
                 return UITableViewCell()
             }
         case 1:
@@ -193,6 +195,7 @@ extension HomeViewController : UITableViewDataSource {
                 content.text = "My tokens"
                 content.image = UIImage(systemName: "t.circle.fill")
                 cell.contentConfiguration = content
+                cell.accessoryType = .disclosureIndicator
                 return UITableViewCell()
             } else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
@@ -200,6 +203,7 @@ extension HomeViewController : UITableViewDataSource {
                 content.text = "Calendar"
                 content.image = UIImage(systemName: "calendar.circle.fill")
                 cell.contentConfiguration = content
+                cell.accessoryType = .disclosureIndicator
                 return UITableViewCell()
             }
         default:

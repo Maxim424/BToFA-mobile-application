@@ -48,7 +48,7 @@ class OperationsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.contentInsetAdjustmentBehavior = .never
-        tableView.isUserInteractionEnabled = true
+        tableView.allowsMultipleSelection = false
         setupTableViewPosition()
     }
     
@@ -110,6 +110,7 @@ extension OperationsViewController: UITableViewDataSource {
         content.image = UIImage(named: "icon_small.svg")
         cell.contentConfiguration = content
         cell.selectionStyle = .default
+        cell.accessoryType = .disclosureIndicator
         return UITableViewCell()
     }
 }
