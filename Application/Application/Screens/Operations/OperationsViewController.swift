@@ -15,28 +15,43 @@ class OperationsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .secondarySystemBackground
         setupViews()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavBar()
+        tableView.reloadData()
     }
     
     private func setupNavBar() {
         navigationController?.navigationBar.topItem?.title = "Transactions"
         navigationController?.navigationBar.prefersLargeTitles = true
-        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.backgroundColor: UIColor.secondarySystemBackground]
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
     
+    // MARK: - Setup iOS theme.
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.userInterfaceStyle == .light {
+            view.backgroundColor = .secondarySystemBackground
+        } else {
+            view.backgroundColor = .systemBackground
+        }
+    }
+    
     // MARK: - Setup Views.
     
     private func setupViews() {
+        if traitCollection.userInterfaceStyle == .light {
+            view.backgroundColor = .secondarySystemBackground
+        } else {
+            view.backgroundColor = .systemBackground
+        }
         setupTableView()
     }
     
@@ -55,7 +70,7 @@ class OperationsViewController: UIViewController {
     // MARK: - TableView setup.
     
     private func setupTableViewAppearance() {
-        tableView.backgroundColor = .secondarySystemBackground
+        tableView.backgroundColor = .clear
         tableView.separatorStyle = .singleLine
         tableView.keyboardDismissMode = .onDrag
         tableView.showsVerticalScrollIndicator = true
@@ -105,13 +120,16 @@ extension OperationsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tokenCell", for: indexPath)
+        customizeCell(cell: cell, text: "MyToken \(indexPath.row + 1)", image: UIImage(named: "icon_small.svg")!)
+        return cell
+    }
+    
+    private func customizeCell(cell: UITableViewCell, text: String, image: UIImage) {
         var content = cell.defaultContentConfiguration()
-        content.text = "MyToken \(indexPath.row + 1)"
-        content.image = UIImage(named: "icon_small.svg")
+        content.text = text
+        content.image = image
         cell.contentConfiguration = content
-        cell.selectionStyle = .default
         cell.accessoryType = .disclosureIndicator
-        return UITableViewCell()
     }
 }
 

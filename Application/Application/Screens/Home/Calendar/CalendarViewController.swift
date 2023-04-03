@@ -21,7 +21,23 @@ class CalendarViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if traitCollection.userInterfaceStyle == .light {
+            view.backgroundColor = .secondarySystemBackground
+        } else {
+            view.backgroundColor = .systemBackground
+        }
         title = "Calendar"
+    }
+    
+    // MARK: - Setup iOS theme.
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.userInterfaceStyle == .light {
+            view.backgroundColor = .secondarySystemBackground
+        } else {
+            view.backgroundColor = .systemBackground
+        }
     }
     
     // MARK: - setupNavBar function.

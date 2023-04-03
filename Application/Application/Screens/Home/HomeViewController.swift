@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .secondarySystemBackground
         setupViews()
     }
     
@@ -35,17 +34,32 @@ class HomeViewController: UIViewController {
         return .default
     }
     
+    // MARK: - Setup iOS theme.
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.userInterfaceStyle == .light {
+            view.backgroundColor = .secondarySystemBackground
+        } else {
+            view.backgroundColor = .systemBackground
+        }
+    }
+    
     // MARK: - setupNavBar function.
     
     private func setupNavBar() {
         navigationController?.navigationBar.topItem?.title = "Home"
         navigationController?.navigationBar.prefersLargeTitles = true
-        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.backgroundColor: UIColor.secondarySystemBackground]
     }
     
     // MARK: - Setup Views.
     
     private func setupViews() {
+        if traitCollection.userInterfaceStyle == .light {
+            view.backgroundColor = .secondarySystemBackground
+        } else {
+            view.backgroundColor = .systemBackground
+        }
         setupTableView()
     }
     
@@ -169,46 +183,40 @@ extension HomeViewController : UITableViewDataSource {
                 content.secondaryText = "1000 ₽"
                 content.textProperties.font = .boldSystemFont(ofSize: 18)
                 content.secondaryTextProperties.font = .systemFont(ofSize: 18)
+                cell.accessoryType = .none
+                cell.selectionStyle = .none
                 cell.contentConfiguration = content
-                return UITableViewCell()
+                return cell
             } else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
-                var content = cell.defaultContentConfiguration()
-                content.text = "Transactions history"
-                content.image = UIImage(systemName: "clock.fill")
-                cell.contentConfiguration = content
-                cell.accessoryType = .disclosureIndicator
-                return UITableViewCell()
+                customizeCell(cell: cell, text: "Transactions history", image: UIImage(systemName: "clock.fill")!)
+                return cell
             } else if indexPath.row == 2 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
-                var content = cell.defaultContentConfiguration()
-                content.text = "Put money"
-                content.image = UIImage(systemName: "dollarsign.circle.fill")
-                cell.contentConfiguration = content
-                cell.accessoryType = .disclosureIndicator
-                return UITableViewCell()
+                customizeCell(cell: cell, text: "Put money", image: UIImage(systemName: "dollarsign.circle.fill")!)
+                return cell
             }
         case 1:
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
-                var content = cell.defaultContentConfiguration()
-                content.text = "My tokens"
-                content.image = UIImage(systemName: "t.circle.fill")
-                cell.contentConfiguration = content
-                cell.accessoryType = .disclosureIndicator
-                return UITableViewCell()
+                customizeCell(cell: cell, text: "My tokens", image: UIImage(systemName: "t.circle.fill")!)
+                return cell
             } else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
-                var content = cell.defaultContentConfiguration()
-                content.text = "Calendar"
-                content.image = UIImage(systemName: "calendar.circle.fill")
-                cell.contentConfiguration = content
-                cell.accessoryType = .disclosureIndicator
-                return UITableViewCell()
+                customizeCell(cell: cell, text: "Calendar", image: UIImage(systemName: "calendar.circle.fill")!)
+                return cell
             }
         default:
             return UITableViewCell()
         }
         return UITableViewCell()
+    }
+    
+    private func customizeCell(cell: UITableViewCell, text: String, image: UIImage) {
+        var content = cell.defaultContentConfiguration()
+        content.text = text
+        content.image = image
+        cell.contentConfiguration = content
+        cell.accessoryType = .disclosureIndicator
     }
 }

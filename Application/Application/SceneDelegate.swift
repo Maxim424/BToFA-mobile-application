@@ -17,6 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
 
         let tabBarController = UITabBarController()
+        tabBarController.tabBar.isTranslucent = true
         tabBarController.viewControllers = [
             createHomeViewController(),
             createOperationsViewController(),
