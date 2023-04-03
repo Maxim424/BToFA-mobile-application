@@ -15,18 +15,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        
-        UITabBar.appearance().backgroundColor = .systemBackground
-        UITabBar.appearance().unselectedItemTintColor = .systemGray
-        
+
         let tabBarController = UITabBarController()
-                
         tabBarController.viewControllers = [
             createHomeViewController(),
             createOperationsViewController(),
             createProfileViewController()
         ]
-        window.rootViewController = tabBarController
+        window.rootViewController = UINavigationController(rootViewController: tabBarController)
         self.window = window
         window.makeKeyAndVisible()
     }
@@ -34,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createHomeViewController() -> UINavigationController {
         let homeViewController = HomeViewController()
         homeViewController.tabBarItem = UITabBarItem(
-            title: "Главная",
+            title: "Home",
             image: UIImage(systemName: "house"),
             tag: 0
         )
@@ -45,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createOperationsViewController() -> UINavigationController {
         let operationsViewController = OperationsViewController()
         operationsViewController.tabBarItem = UITabBarItem(
-            title: "Операции",
+            title: "Transacttions",
             image: UIImage(systemName: "briefcase"),
             tag: 0
         )
@@ -56,7 +52,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createProfileViewController() -> UINavigationController {
         let profileViewController = ProfileViewController()
         profileViewController.tabBarItem = UITabBarItem(
-            title: "Профиль",
+            title: "Profile",
             image: UIImage(systemName: "person"),
             tag: 0
         )

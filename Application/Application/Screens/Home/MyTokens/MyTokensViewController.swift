@@ -1,13 +1,13 @@
 //
-//  PutMoneyViewController.swift
+//  MyTokensViewController.swift
 //  Application
 //
-//  Created by Максим Кузнецов on 03.03.2023.
+//  Created by Максим Кузнецов on 03.04.2023.
 //
 
 import UIKit
 
-class PutMoneyViewController: UIViewController {
+class MyTokensViewController: UIViewController {
     
     // MARK: - viewDidLoad function.
     
@@ -21,15 +21,12 @@ class PutMoneyViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = "Пополнить баланс"
+        title = "My Tokens"
     }
     
     // MARK: - setupNavBar function.
     
     private func setupNavBar() {
-        let closeButton = UIButton(type: .close)
-        closeButton.addTarget(self, action: #selector(dismissViewController(_:)), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: closeButton)
     }
     
     @objc
@@ -38,3 +35,4 @@ class PutMoneyViewController: UIViewController {
     }
 
 }
+

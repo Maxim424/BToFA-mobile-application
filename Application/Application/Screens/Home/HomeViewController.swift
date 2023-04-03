@@ -11,17 +11,13 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties.
     
-    private let tableView = UITableView()
-    private let accountBalanceWidget = AccountBalanceWidget()
-    private let tokensWidget = TokensWidget()
-    private let paymentCalendarWidget = PaymentCalendarWidget()
+    let tableView = UITableView(frame: .zero, style: .insetGrouped)
 
     // MARK: - viewDidLoad function.
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
-        
         setupViews()
     }
     
@@ -29,22 +25,22 @@ class HomeViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        navigationController?.navigationBar.isHidden = false
-        navigationController?.navigationBar.isTranslucent = false
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .systemBackground
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.label]
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.topItem?.title = "Главная"
+        setupNavBar()
+        tableView.reloadData()
     }
     
     // MARK: - Setup StatusBar.
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
+    }
+    
+    // MARK: - setupNavBar function.
+    
+    private func setupNavBar() {
+        navigationController?.navigationBar.topItem?.title = "Home"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.backgroundColor: UIColor.secondarySystemBackground]
     }
     
     // MARK: - Setup Views.
@@ -56,14 +52,12 @@ class HomeViewController: UIViewController {
     // MARK: - TableView setup.
         
     private func setupTableView() {
-        tableView.register(AccountBalanceWidget.self, forCellReuseIdentifier: AccountBalanceWidget.reuseIdentifier)
-        tableView.register(TokensWidget.self, forCellReuseIdentifier: TokensWidget.reuseIdentifier)
-        tableView.register(PaymentCalendarWidget.self, forCellReuseIdentifier: PaymentCalendarWidget.reuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "widgetCell")
         setupTableViewAppearance()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.contentInsetAdjustmentBehavior = .never
-        tableView.isUserInteractionEnabled = true
+//        tableView.isUserInteractionEnabled = true
         setupTableViewPosition()
     }
     
@@ -89,7 +83,6 @@ class HomeViewController: UIViewController {
         let transactionLogViewController = TransactionLogViewController()
         let navController = UINavigationController(rootViewController: transactionLogViewController)
         navigationController?.present(navController, animated: true)
-//        navigationController?.pushViewController(transactionLogViewController, animated: true)
     }
     
     @objc
@@ -97,7 +90,13 @@ class HomeViewController: UIViewController {
         let putMoneyViewController = PutMoneyViewController()
         let navController = UINavigationController(rootViewController: putMoneyViewController)
         navigationController?.present(navController, animated: true)
-//        navigationController?.pushViewController(putMoneyViewController, animated: true)
+    }
+    
+    @objc
+    private func profileButtonPressed() {
+        let profileViewController = ProfileViewController()
+        let navController = UINavigationController(rootViewController: profileViewController)
+        navigationController?.present(navController, animated: true)
     }
 }
 
@@ -105,72 +104,107 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if indexPath.row == 1 {
+                let transactionLogViewController = TransactionLogViewController()
+                navigationController?.pushViewController(transactionLogViewController, animated: true)
+            } else if indexPath.row == 2 {
+                let putMoneyViewController = PutMoneyViewController()
+                navigationController?.pushViewController(putMoneyViewController, animated: true)
+            }
+        } else if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                let myTokensViewController = MyTokensViewController()
+                navigationController?.pushViewController(myTokensViewController, animated: true)
+            } else if indexPath.row == 1 {
+                let calendarViewController = CalendarViewController()
+                navigationController?.pushViewController(calendarViewController, animated: true)
+            }
+        }
     }
 }
 
-
 // MARK: - DataSource extension.
 
-extension HomeViewController: UITableViewDataSource {
+extension HomeViewController : UITableViewDataSource {
     
     // MARK: - Setup number of sections.
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
-    // MARK: - Cells number.
+    // MARK: - Setup cells number.
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        switch section {
+        case 0:
+            return 3
+        case 1:
+            return 2
+        default:
+            return 1
+        }
     }
     
     // MARK: - Setup cell height.
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 166
-        } else {
-            return 200
+        if indexPath.section == 0 && indexPath.row == 0 {
+            return 80
         }
+        return 50
     }
     
     // MARK: - Setup cells.
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
-            if let accountWidgetCell = tableView.dequeueReusableCell(withIdentifier: AccountBalanceWidget.reuseIdentifier, for: indexPath) as? AccountBalanceWidget {
-                accountWidgetCell.isUserInteractionEnabled = true
-                accountWidgetCell.putMoneyButton.addTarget(self, action: #selector(putMoneyButtonPressed), for: .touchUpInside)
-                accountWidgetCell.transactionLogButton.addTarget(self, action: #selector(transactionLogButtonPressed), for: .touchUpInside)
-                setBorders(cell: accountWidgetCell)
-                return accountWidgetCell
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
+                var content = cell.defaultContentConfiguration()
+                content.image = UIImage(systemName: "briefcase.circle.fill")
+                content.text = "Account"
+                content.secondaryText = "1000 ₽"
+                content.textProperties.font = .boldSystemFont(ofSize: 18)
+                content.secondaryTextProperties.font = .systemFont(ofSize: 18)
+                cell.contentConfiguration = content
+                return UITableViewCell()
+            } else if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
+                var content = cell.defaultContentConfiguration()
+                content.text = "Transactions history"
+                content.image = UIImage(systemName: "clock.fill")
+                cell.contentConfiguration = content
+                return UITableViewCell()
+            } else if indexPath.row == 2 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
+                var content = cell.defaultContentConfiguration()
+                content.text = "Put money"
+                content.image = UIImage(systemName: "dollarsign.circle.fill")
+                cell.contentConfiguration = content
+                return UITableViewCell()
             }
         case 1:
-            if let tokensWidget = tableView.dequeueReusableCell(withIdentifier: TokensWidget.reuseIdentifier, for: indexPath) as? TokensWidget {
-                tokensWidget.isUserInteractionEnabled = true
-                setBorders(cell: tokensWidget)
-                return tokensWidget
-            }
-        case 2:
-            if let paymentCalendarWidget = tableView.dequeueReusableCell(withIdentifier: PaymentCalendarWidget.reuseIdentifier, for: indexPath) as? PaymentCalendarWidget {
-                paymentCalendarWidget.isUserInteractionEnabled = true
-                setBorders(cell: paymentCalendarWidget)
-                return paymentCalendarWidget
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
+                var content = cell.defaultContentConfiguration()
+                content.text = "My tokens"
+                content.image = UIImage(systemName: "t.circle.fill")
+                cell.contentConfiguration = content
+                return UITableViewCell()
+            } else if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "widgetCell", for: indexPath)
+                var content = cell.defaultContentConfiguration()
+                content.text = "Calendar"
+                content.image = UIImage(systemName: "calendar.circle.fill")
+                cell.contentConfiguration = content
+                return UITableViewCell()
             }
         default:
             return UITableViewCell()
         }
         return UITableViewCell()
     }
-    
-    private func setBorders(cell: UITableViewCell) {
-        cell.layer.borderColor = UIColor.secondarySystemBackground.cgColor
-        cell.layer.borderWidth = 5
-        cell.clipsToBounds = true
-    }
 }
-
-
-

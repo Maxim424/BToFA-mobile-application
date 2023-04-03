@@ -25,6 +25,8 @@
 		4F69D0AF29B7AF410008489A /* TokenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69D0AE29B7AF410008489A /* TokenTableViewCell.swift */; };
 		4F82B2F229AF906400C1DD10 /* OperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F82B2F129AF906400C1DD10 /* OperationsViewController.swift */; };
 		4F82B2F429AF907100C1DD10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F82B2F329AF907100C1DD10 /* ProfileViewController.swift */; };
+		4F88E87F29DAD955007A4367 /* MyTokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F88E87E29DAD955007A4367 /* MyTokensViewController.swift */; };
+		4F88E88129DAD974007A4367 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F88E88029DAD974007A4367 /* CalendarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		4F69D0AE29B7AF410008489A /* TokenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTableViewCell.swift; sourceTree = "<group>"; };
 		4F82B2F129AF906400C1DD10 /* OperationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsViewController.swift; sourceTree = "<group>"; };
 		4F82B2F329AF907100C1DD10 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4F88E87E29DAD955007A4367 /* MyTokensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTokensViewController.swift; sourceTree = "<group>"; };
+		4F88E88029DAD974007A4367 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +101,12 @@
 		4F44606D29B1E2C7000E0FAD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4F88E87D29DAD92B007A4367 /* Calendar */,
+				4F88E87C29DAD91C007A4367 /* MyTokens */,
+				4F69D0AB29B79DB80008489A /* PutMoney */,
+				4F69D0AA29B79D920008489A /* TransactionLog */,
 				4F5D4FDE29AE4063003EFAA1 /* HomeViewController.swift */,
-				4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */,
-				4F69D0AC29B7AC1D0008489A /* TokensWidget.swift */,
 				4F69D0AE29B7AF410008489A /* TokenTableViewCell.swift */,
-				4F5F2A3A29BA6AED00D38E21 /* PaymentCalendarWidget.swift */,
 				4F5F2A3C29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift */,
 			);
 			path = Home;
@@ -163,6 +168,7 @@
 		4F5D4FD929AE4063003EFAA1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				4F88E87B29DAD8AD007A4367 /* Deprecated&Unused */,
 				4F44607229B1E50A000E0FAD /* CommonUI */,
 				4F82B2F029AF8FE700C1DD10 /* Screens */,
 				4F5D4FDA29AE4063003EFAA1 /* AppDelegate.swift */,
@@ -209,13 +215,37 @@
 		4F82B2F029AF8FE700C1DD10 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				4F69D0AB29B79DB80008489A /* PutMoney */,
-				4F69D0AA29B79D920008489A /* TransactionLog */,
 				4F44606F29B1E2DF000E0FAD /* Profile */,
 				4F44606E29B1E2D4000E0FAD /* Operations */,
 				4F44606D29B1E2C7000E0FAD /* Home */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		4F88E87B29DAD8AD007A4367 /* Deprecated&Unused */ = {
+			isa = PBXGroup;
+			children = (
+				4F69D0AC29B7AC1D0008489A /* TokensWidget.swift */,
+				4F5F2A3A29BA6AED00D38E21 /* PaymentCalendarWidget.swift */,
+				4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */,
+			);
+			path = "Deprecated&Unused";
+			sourceTree = "<group>";
+		};
+		4F88E87C29DAD91C007A4367 /* MyTokens */ = {
+			isa = PBXGroup;
+			children = (
+				4F88E87E29DAD955007A4367 /* MyTokensViewController.swift */,
+			);
+			path = MyTokens;
+			sourceTree = "<group>";
+		};
+		4F88E87D29DAD92B007A4367 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				4F88E88029DAD974007A4367 /* CalendarViewController.swift */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,7 +327,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4F5D4FD229AE4063003EFAA1 /* Build configuration list for PBXProject "Application" */;
+			buildConfigurationList = 4F5D4FD229AE4063003EFAA1 /* Build configuration list for PBXProject "BToFA" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -347,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F88E88129DAD974007A4367 /* CalendarViewController.swift in Sources */,
 				4F5F2A3D29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift in Sources */,
 				4F82B2F229AF906400C1DD10 /* OperationsViewController.swift in Sources */,
 				4F5D4FDF29AE4063003EFAA1 /* HomeViewController.swift in Sources */,
@@ -361,6 +392,7 @@
 				4F5D4FDD29AE4063003EFAA1 /* SceneDelegate.swift in Sources */,
 				4F5F2A3B29BA6AED00D38E21 /* PaymentCalendarWidget.swift in Sources */,
 				4F07107E29B212DD00F62899 /* PutMoneyViewController.swift in Sources */,
+				4F88E87F29DAD955007A4367 /* MyTokensViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,7 +676,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4F5D4FD229AE4063003EFAA1 /* Build configuration list for PBXProject "Application" */ = {
+		4F5D4FD229AE4063003EFAA1 /* Build configuration list for PBXProject "BToFA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4F5D4FFF29AE4064003EFAA1 /* Debug */,

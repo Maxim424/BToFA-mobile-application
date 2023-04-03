@@ -21,15 +21,12 @@ class TransactionLogViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = "Журнал операций"
+        title = "Transactions history"
     }
     
     // MARK: - setupNavBar function.
     
     private func setupNavBar() {
-        let closeButton = UIButton(type: .close)
-        closeButton.addTarget(self, action: #selector(dismissViewController(_:)), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: closeButton)
     }
     
     @objc
