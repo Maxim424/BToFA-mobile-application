@@ -27,6 +27,8 @@
 		4F82B2F429AF907100C1DD10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F82B2F329AF907100C1DD10 /* ProfileViewController.swift */; };
 		4F88E87F29DAD955007A4367 /* MyTokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F88E87E29DAD955007A4367 /* MyTokensViewController.swift */; };
 		4F88E88129DAD974007A4367 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F88E88029DAD974007A4367 /* CalendarViewController.swift */; };
+		4FEE3BFC29E0630900C562ED /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */; };
+		4FEE3BFE29E064D100C562ED /* SetupNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		4F82B2F329AF907100C1DD10 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4F88E87E29DAD955007A4367 /* MyTokensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTokensViewController.swift; sourceTree = "<group>"; };
 		4F88E88029DAD974007A4367 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNotificationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				4F82B2F329AF907100C1DD10 /* ProfileViewController.swift */,
+				4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */,
+				4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -387,8 +393,10 @@
 				4F69D0AD29B7AC1D0008489A /* TokensWidget.swift in Sources */,
 				4F82B2F429AF907100C1DD10 /* ProfileViewController.swift in Sources */,
 				4F69D0AF29B7AF410008489A /* TokenTableViewCell.swift in Sources */,
+				4FEE3BFC29E0630900C562ED /* EditProfileViewController.swift in Sources */,
 				4F5D4FDB29AE4063003EFAA1 /* AppDelegate.swift in Sources */,
 				4F44607529B1E54B000E0FAD /* UIView+Pin.swift in Sources */,
+				4FEE3BFE29E064D100C562ED /* SetupNotificationsViewController.swift in Sources */,
 				4F5D4FDD29AE4063003EFAA1 /* SceneDelegate.swift in Sources */,
 				4F5F2A3B29BA6AED00D38E21 /* PaymentCalendarWidget.swift in Sources */,
 				4F07107E29B212DD00F62899 /* PutMoneyViewController.swift in Sources */,

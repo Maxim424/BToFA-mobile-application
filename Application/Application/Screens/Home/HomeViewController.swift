@@ -75,8 +75,6 @@ class HomeViewController: UIViewController {
         setupTableViewPosition()
     }
     
-    // MARK: - TableView setup.
-    
     private func setupTableViewAppearance() {
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .singleLine
