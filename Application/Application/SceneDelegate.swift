@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
     }
     
-    func createHomeViewController() -> UINavigationController {
+    func createHomeViewController() -> UIViewController {
         let homeViewController = HomeViewController()
         homeViewController.tabBarItem = UITabBarItem(
             title: "Home",
@@ -36,10 +36,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             tag: 0
         )
         
-        return UINavigationController(rootViewController: homeViewController)
+        return homeViewController
     }
     
-    func createOperationsViewController() -> UINavigationController {
+    func createOperationsViewController() -> UIViewController {
         let operationsViewController = OperationsViewController()
         operationsViewController.tabBarItem = UITabBarItem(
             title: "Transacttions",
@@ -47,10 +47,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             tag: 0
         )
         
-        return UINavigationController(rootViewController: operationsViewController)
+        return operationsViewController
     }
     
-    func createProfileViewController() -> UINavigationController {
+    func createProfileViewController() -> UIViewController {
         let profileViewController = ProfileViewController()
         profileViewController.tabBarItem = UITabBarItem(
             title: "Profile",
@@ -58,7 +58,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             tag: 0
         )
         
-        return UINavigationController(rootViewController: profileViewController)
+        return profileViewController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
