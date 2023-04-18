@@ -20,6 +20,11 @@ class OperationsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if traitCollection.userInterfaceStyle == .light {
+            view.backgroundColor = .secondarySystemBackground
+        } else {
+            view.backgroundColor = .systemBackground
+        }
         setupNavBar()
         tableView.reloadData()
     }
@@ -47,11 +52,6 @@ class OperationsViewController: UIViewController {
     // MARK: - Setup Views.
     
     private func setupViews() {
-        if traitCollection.userInterfaceStyle == .light {
-            view.backgroundColor = .secondarySystemBackground
-        } else {
-            view.backgroundColor = .systemBackground
-        }
         setupTableView()
     }
     
@@ -134,7 +134,3 @@ extension OperationsViewController: UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
     }
 }
-
-
-
-
