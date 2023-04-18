@@ -27,8 +27,10 @@ class PutMoneyViewController: UIViewController {
         super.viewWillAppear(animated)
         if traitCollection.userInterfaceStyle == .light {
             view.backgroundColor = .secondarySystemBackground
+            textField.backgroundColor = .systemBackground
         } else {
             view.backgroundColor = .systemBackground
+            textField.backgroundColor = .secondarySystemBackground
         }
         title = "Put money"
     }
@@ -39,8 +41,10 @@ class PutMoneyViewController: UIViewController {
         super.traitCollectionDidChange(previousTraitCollection)
         if traitCollection.userInterfaceStyle == .light {
             view.backgroundColor = .secondarySystemBackground
+            textField.backgroundColor = .systemBackground
         } else {
             view.backgroundColor = .systemBackground
+            textField.backgroundColor = .secondarySystemBackground
         }
     }
 
