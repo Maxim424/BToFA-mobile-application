@@ -121,8 +121,8 @@
 		4F44606E29B1E2D4000E0FAD /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				4FFAF13C29EEC10B009E8CE0 /* BuyToken */,
 				4F82B2F129AF906400C1DD10 /* OperationsViewController.swift */,
-				4F8B5DBB29E70C4E0026AAFE /* BuyTokenViewController.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -130,9 +130,9 @@
 		4F44606F29B1E2DF000E0FAD /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4FFAF13B29EEC0F5009E8CE0 /* SetupNotifications */,
+				4FFAF13A29EEC0E2009E8CE0 /* EditProfile */,
 				4F82B2F329AF907100C1DD10 /* ProfileViewController.swift */,
-				4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */,
-				4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -266,6 +266,30 @@
 				4FFAF13829EEB789009E8CE0 /* TokenModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		4FFAF13A29EEC0E2009E8CE0 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		4FFAF13B29EEC0F5009E8CE0 /* SetupNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */,
+			);
+			path = SetupNotifications;
+			sourceTree = "<group>";
+		};
+		4FFAF13C29EEC10B009E8CE0 /* BuyToken */ = {
+			isa = PBXGroup;
+			children = (
+				4F8B5DBB29E70C4E0026AAFE /* BuyTokenViewController.swift */,
+			);
+			path = BuyToken;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

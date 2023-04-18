@@ -24,6 +24,11 @@ class HomeViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if traitCollection.userInterfaceStyle == .light {
+            view.backgroundColor = .secondarySystemBackground
+        } else {
+            view.backgroundColor = .systemBackground
+        }
         setupNavBar()
         tableView.reloadData()
     }
@@ -55,11 +60,6 @@ class HomeViewController: UIViewController {
     // MARK: - Setup Views.
     
     private func setupViews() {
-        if traitCollection.userInterfaceStyle == .light {
-            view.backgroundColor = .secondarySystemBackground
-        } else {
-            view.backgroundColor = .systemBackground
-        }
         setupTableView()
     }
     

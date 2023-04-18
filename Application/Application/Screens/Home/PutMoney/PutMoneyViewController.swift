@@ -9,11 +9,16 @@ import UIKit
 
 class PutMoneyViewController: UIViewController {
     
+    // MARK: - Properties.
+    
+    private let textField = UITextField()
+    private let submitButton = UIButton(type: .system)
+    
     // MARK: - viewDidLoad function.
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavBar()
+        setupViews()
     }
     
     // MARK: - viewWillAppear function.
@@ -38,15 +43,60 @@ class PutMoneyViewController: UIViewController {
             view.backgroundColor = .systemBackground
         }
     }
+
+    // MARK: - setupViews function.
     
-    // MARK: - setupNavBar function.
+    private func setupViews() {
+        setupTextField()
+        setupSubmitButton()
+    }
     
-    private func setupNavBar() {
+    // MARK: - setupTextField function.
+    
+    private func setupTextField() {
+        view.addSubview(textField)
+        textField.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 16)
+        textField.pinLeft(to: view.leadingAnchor, 16)
+        textField.pinRight(to: view.trailingAnchor, 16)
+        textField.setHeight(to: 50)
+        let paddingView = UIView()
+        let textLabel = UILabel()
+        textLabel.setWidth(to: 90)
+        textLabel.setHeight(to: 40)
+        paddingView.addSubview(textLabel)
+        textLabel.pinTop(to: paddingView, 5)
+        textLabel.pinBottom(to: paddingView, 5)
+        textLabel.pinLeft(to: paddingView, 10)
+        textLabel.pinRight(to: paddingView, 5)
+        textLabel.text = "Amount ₽:"
+        textLabel.textAlignment = .left
+        textLabel.textColor = .label
+        textLabel.font = .systemFont(ofSize: 18, weight: .medium)
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+        textField.backgroundColor = .systemBackground
+        textField.layer.cornerRadius = 10
+        textField.keyboardType = .asciiCapableNumberPad
+        textField.returnKeyType = UIReturnKeyType.done
+        textField.clearButtonMode = UITextField.ViewMode.whileEditing
+    }
+    
+    // MARK: - setupSubmitButton function.
+    
+    private func setupSubmitButton() {
+        view.addSubview(submitButton)
+        submitButton.setTitle("Submit", for: .normal)
+        submitButton.configuration = .filled()
+        submitButton.configuration?.cornerStyle = .medium
+        submitButton.setHeight(to: 50)
+        submitButton.pinTop(to: textField.bottomAnchor, 10)
+        submitButton.pinLeft(to: view.safeAreaLayoutGuide.leadingAnchor, 16)
+        submitButton.pinRight(to: view.safeAreaLayoutGuide.trailingAnchor, 16)
+        submitButton.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
     }
     
     @objc
-    private func dismissViewController(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    private func submitButtonPressed() {
+        navigationController?.popViewController(animated: true)
     }
-
 }
