@@ -9,12 +9,16 @@ import UIKit
 
 class BuyTokenViewController: UIViewController {
     
+    // MARK: - Properties.
+    
+    private let infoLabel = UILabel()
+    private let buyButton = UIButton(type: .system)
+    
     // MARK: - viewDidLoad function.
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .secondarySystemBackground
-        setupNavBar()
+        setupViews()
     }
     
     // MARK: - viewWillAppear function.
@@ -26,7 +30,6 @@ class BuyTokenViewController: UIViewController {
         } else {
             view.backgroundColor = .systemBackground
         }
-        title = "Buy token"
     }
     
     // MARK: - Setup iOS theme.
@@ -40,17 +43,44 @@ class BuyTokenViewController: UIViewController {
         }
     }
     
-    // MARK: - setupNavBar function.
+    // MARK: - setupViews function.
     
-    private func setupNavBar() {
+    private func setupViews() {
+        setupInfoLabel()
+        setupBuyButton()
+    }
+    
+    private func setupInfoLabel() {
+        view.addSubview(infoLabel)
+        infoLabel.pinTop(to: view.safeAreaLayoutGuide.topAnchor, 10)
+        infoLabel.pinLeft(to: view, 16)
+        infoLabel.pinRight(to: view, 16)
+        infoLabel.textAlignment = .left
+        infoLabel.lineBreakMode = .byWordWrapping
+        infoLabel.numberOfLines = .zero
+        infoLabel.textColor = .label
+        infoLabel.font = .systemFont(ofSize: 18, weight: .regular)
+    }
+    
+    private func setupBuyButton() {
+        view.addSubview(buyButton)
+        buyButton.pinTop(to: infoLabel.bottomAnchor, 10)
+        buyButton.pinLeft(to: view.safeAreaLayoutGuide.leadingAnchor, 16)
+        buyButton.pinRight(to: view.safeAreaLayoutGuide.trailingAnchor, 16)
+        buyButton.setHeight(to: 50)
+        buyButton.setTitle("Buy", for: .normal)
+        buyButton.configuration = .filled()
+        buyButton.configuration?.cornerStyle = .medium
+        buyButton.addTarget(self, action: #selector(buyButtonPressed), for: .touchUpInside)
     }
     
     @objc
-    private func dismissViewController(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    private func buyButtonPressed() {
+        navigationController?.popViewController(animated: true)
     }
     
-    public func configure() {
-        
+    public func configure(model: TokenModel) {
+        title = model.name
+        infoLabel.text = "Here will be all the necessary information about the \(model.name ?? "token")"
     }
 }

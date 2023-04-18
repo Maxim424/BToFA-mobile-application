@@ -136,5 +136,11 @@ class EditProfileViewController: UIViewController {
         saveButton.pinTop(to: lastnameTextField.bottomAnchor, 10)
         saveButton.pinLeft(to: view.safeAreaLayoutGuide.leadingAnchor, 16)
         saveButton.pinRight(to: view.safeAreaLayoutGuide.trailingAnchor, 16)
+        saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc
+    private func saveButtonPressed() {
+        navigationController?.popViewController(animated: true)
     }
 }

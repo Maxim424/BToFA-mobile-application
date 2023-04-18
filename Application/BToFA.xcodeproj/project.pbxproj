@@ -30,6 +30,7 @@
 		4F8B5DBC29E70C4E0026AAFE /* BuyTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B5DBB29E70C4E0026AAFE /* BuyTokenViewController.swift */; };
 		4FEE3BFC29E0630900C562ED /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */; };
 		4FEE3BFE29E064D100C562ED /* SetupNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */; };
+		4FFAF13929EEB789009E8CE0 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAF13829EEB789009E8CE0 /* TokenModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		4F8B5DBB29E70C4E0026AAFE /* BuyTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTokenViewController.swift; sourceTree = "<group>"; };
 		4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNotificationsViewController.swift; sourceTree = "<group>"; };
+		4FFAF13829EEB789009E8CE0 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		4F5D4FD929AE4063003EFAA1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				4FFAF13729EEB77B009E8CE0 /* Models */,
 				4F88E87B29DAD8AD007A4367 /* Deprecated&Unused */,
 				4F44607229B1E50A000E0FAD /* CommonUI */,
 				4F82B2F029AF8FE700C1DD10 /* Screens */,
@@ -255,6 +258,14 @@
 				4F88E88029DAD974007A4367 /* CalendarViewController.swift */,
 			);
 			path = Calendar;
+			sourceTree = "<group>";
+		};
+		4FFAF13729EEB77B009E8CE0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4FFAF13829EEB789009E8CE0 /* TokenModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +410,7 @@
 				4F69D0AF29B7AF410008489A /* TokenTableViewCell.swift in Sources */,
 				4FEE3BFC29E0630900C562ED /* EditProfileViewController.swift in Sources */,
 				4F5D4FDB29AE4063003EFAA1 /* AppDelegate.swift in Sources */,
+				4FFAF13929EEB789009E8CE0 /* TokenModel.swift in Sources */,
 				4F44607529B1E54B000E0FAD /* UIView+Pin.swift in Sources */,
 				4FEE3BFE29E064D100C562ED /* SetupNotificationsViewController.swift in Sources */,
 				4F5D4FDD29AE4063003EFAA1 /* SceneDelegate.swift in Sources */,
