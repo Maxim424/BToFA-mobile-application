@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             createOperationsViewController(),
             createProfileViewController()
         ]
-        window.rootViewController = UINavigationController(rootViewController: tabBarController)
+//        window.rootViewController = UINavigationController(rootViewController: tabBarController)
+        window.rootViewController = UINavigationController(rootViewController: WelcomeViewController())
         self.window = window
         window.makeKeyAndVisible()
     }

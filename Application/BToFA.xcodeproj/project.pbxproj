@@ -31,6 +31,9 @@
 		4FEE3BFC29E0630900C562ED /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */; };
 		4FEE3BFE29E064D100C562ED /* SetupNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */; };
 		4FFAF13929EEB789009E8CE0 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAF13829EEB789009E8CE0 /* TokenModel.swift */; };
+		4FFAF13F29EED5CE009E8CE0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAF13E29EED5CE009E8CE0 /* WelcomeViewController.swift */; };
+		4FFAF14129EEE1AB009E8CE0 /* EnterEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAF14029EEE1AB009E8CE0 /* EnterEmailViewController.swift */; };
+		4FFAF14429EEE65E009E8CE0 /* String+isEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAF14329EEE65E009E8CE0 /* String+isEmail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNotificationsViewController.swift; sourceTree = "<group>"; };
 		4FFAF13829EEB789009E8CE0 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
+		4FFAF13E29EED5CE009E8CE0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		4FFAF14029EEE1AB009E8CE0 /* EnterEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterEmailViewController.swift; sourceTree = "<group>"; };
+		4FFAF14329EEE65E009E8CE0 /* String+isEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isEmail.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +183,7 @@
 		4F5D4FD929AE4063003EFAA1 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				4FFAF14229EEE647009E8CE0 /* Extensions */,
 				4FFAF13729EEB77B009E8CE0 /* Models */,
 				4F88E87B29DAD8AD007A4367 /* Deprecated&Unused */,
 				4F44607229B1E50A000E0FAD /* CommonUI */,
@@ -225,6 +232,7 @@
 		4F82B2F029AF8FE700C1DD10 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4FFAF13D29EED555009E8CE0 /* Authorization */,
 				4F44606F29B1E2DF000E0FAD /* Profile */,
 				4F44606E29B1E2D4000E0FAD /* Operations */,
 				4F44606D29B1E2C7000E0FAD /* Home */,
@@ -290,6 +298,23 @@
 				4F8B5DBB29E70C4E0026AAFE /* BuyTokenViewController.swift */,
 			);
 			path = BuyToken;
+			sourceTree = "<group>";
+		};
+		4FFAF13D29EED555009E8CE0 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				4FFAF13E29EED5CE009E8CE0 /* WelcomeViewController.swift */,
+				4FFAF14029EEE1AB009E8CE0 /* EnterEmailViewController.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		4FFAF14229EEE647009E8CE0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4FFAF14329EEE65E009E8CE0 /* String+isEmail.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,8 +449,11 @@
 				4F88E88129DAD974007A4367 /* CalendarViewController.swift in Sources */,
 				4F5F2A3D29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift in Sources */,
 				4F82B2F229AF906400C1DD10 /* OperationsViewController.swift in Sources */,
+				4FFAF14429EEE65E009E8CE0 /* String+isEmail.swift in Sources */,
 				4F5D4FDF29AE4063003EFAA1 /* HomeViewController.swift in Sources */,
+				4FFAF14129EEE1AB009E8CE0 /* EnterEmailViewController.swift in Sources */,
 				4F44607129B1E32B000E0FAD /* AccountBalanceWidget.swift in Sources */,
+				4FFAF13F29EED5CE009E8CE0 /* WelcomeViewController.swift in Sources */,
 				4F07107C29B20C1D00F62899 /* TransactionLogViewController.swift in Sources */,
 				4F44607729B1F54A000E0FAD /* AppConstants.swift in Sources */,
 				4F8B5DBC29E70C4E0026AAFE /* BuyTokenViewController.swift in Sources */,
