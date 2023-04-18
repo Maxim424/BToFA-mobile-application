@@ -19,9 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarController = UITabBarController()
         tabBarController.tabBar.isTranslucent = true
         tabBarController.viewControllers = [
-            createHomeViewController(),
-            createOperationsViewController(),
-            createProfileViewController()
+            SceneDelegate.createHomeViewController(),
+            SceneDelegate.createOperationsViewController(),
+            SceneDelegate.createProfileViewController()
         ]
 //        window.rootViewController = UINavigationController(rootViewController: tabBarController)
         window.rootViewController = UINavigationController(rootViewController: WelcomeViewController())
@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.makeKeyAndVisible()
     }
     
-    func createHomeViewController() -> UIViewController {
+    static func createHomeViewController() -> UIViewController {
         let homeViewController = HomeViewController()
         homeViewController.tabBarItem = UITabBarItem(
             title: "Home",
@@ -40,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return homeViewController
     }
     
-    func createOperationsViewController() -> UIViewController {
+    static func createOperationsViewController() -> UIViewController {
         let operationsViewController = OperationsViewController()
         operationsViewController.tabBarItem = UITabBarItem(
             title: "Transacttions",
@@ -51,7 +51,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         return operationsViewController
     }
     
-    func createProfileViewController() -> UIViewController {
+    static func createProfileViewController() -> UIViewController {
         let profileViewController = ProfileViewController()
         profileViewController.tabBarItem = UITabBarItem(
             title: "Profile",
@@ -60,6 +60,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         )
         
         return profileViewController
+    }
+    
+    func changeRootViewController(_ viewController: UIViewController, animated: Bool = true) {
+        guard let window = self.window else {
+            return
+        }
+        
+        window.rootViewController = viewController
+        
+        UIView.transition(with: window,
+                          duration: 0.5,
+                          options: [.curveEaseIn],
+                              animations: nil,
+                              completion: nil)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -129,6 +129,14 @@ class EnterEmailViewController: UIViewController {
     
     @objc
     private func submitButtonPressed() {
-        navigationController?.popViewController(animated: true)
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.isTranslucent = true
+        tabBarController.viewControllers = [
+            SceneDelegate.createHomeViewController(),
+            SceneDelegate.createOperationsViewController(),
+            SceneDelegate.createProfileViewController()
+        ]
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(
+        UINavigationController(rootViewController: tabBarController))
     }
 }

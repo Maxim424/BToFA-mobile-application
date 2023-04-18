@@ -85,7 +85,6 @@ class WelcomeViewController: UIViewController {
     @objc
     private func signButtonPressed() {
         let enterEmailViewController = EnterEmailViewController()
-        let navController = UINavigationController(rootViewController: enterEmailViewController)
         navigationController?.pushViewController(enterEmailViewController, animated: true)
     }
 }
