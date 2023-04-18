@@ -9,12 +9,16 @@ import UIKit
 
 class SetupNotificationsViewController: UIViewController {
     
+    // MARK: - Properties.
+    
+    let tableView = UITableView(frame: .zero, style: .insetGrouped)
+    
     // MARK: - viewDidLoad function.
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
-        setupNavBar()
+        setupViews()
     }
     
     // MARK: - viewWillAppear function.
@@ -40,14 +44,96 @@ class SetupNotificationsViewController: UIViewController {
         }
     }
     
-    // MARK: - setupNavBar function.
+    // MARK: - Setup Views.
     
-    private func setupNavBar() {
+    private func setupViews() {
+        if traitCollection.userInterfaceStyle == .light {
+            view.backgroundColor = .secondarySystemBackground
+        } else {
+            view.backgroundColor = .systemBackground
+        }
+        setupTableView()
     }
     
-    @objc
-    private func dismissViewController(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    // MARK: - TableView setup.
+        
+    private func setupTableView() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "settingsCell")
+        setupTableViewAppearance()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.contentInsetAdjustmentBehavior = .never
+        tableView.allowsMultipleSelection = false
+        tableView.isUserInteractionEnabled = true
+        setupTableViewPosition()
     }
-
+    
+    private func setupTableViewAppearance() {
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = .singleLine
+        tableView.keyboardDismissMode = .onDrag
+        tableView.showsVerticalScrollIndicator = false
+    }
+    
+    private func setupTableViewPosition() {
+        view.addSubview(tableView)
+        tableView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
+        tableView.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor)
+        tableView.pinLeft(to: view)
+        tableView.pinRight(to: view)
+    }
 }
+
+// MARK: - Delegate extension.
+
+extension SetupNotificationsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+
+// MARK: - DataSource extension.
+
+extension SetupNotificationsViewController : UITableViewDataSource {
+    
+    // MARK: - Setup number of sections.
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    // MARK: - Setup cells number.
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    // MARK: - Setup cell height.
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    // MARK: - Setup cells.
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
+                var content = cell.defaultContentConfiguration()
+                content.text = "Dividend notifications"
+                cell.contentConfiguration = content
+                let switchView = UISwitch(frame: .zero)
+                switchView.setOn(false, animated: true)
+                cell.accessoryView = switchView
+                return cell
+            }
+        default:
+            return UITableViewCell()
+        }
+        return UITableViewCell()
+    }
+}
+
+

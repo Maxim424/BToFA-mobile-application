@@ -27,6 +27,7 @@
 		4F82B2F429AF907100C1DD10 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F82B2F329AF907100C1DD10 /* ProfileViewController.swift */; };
 		4F88E87F29DAD955007A4367 /* MyTokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F88E87E29DAD955007A4367 /* MyTokensViewController.swift */; };
 		4F88E88129DAD974007A4367 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F88E88029DAD974007A4367 /* CalendarViewController.swift */; };
+		4F8B5DBC29E70C4E0026AAFE /* BuyTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B5DBB29E70C4E0026AAFE /* BuyTokenViewController.swift */; };
 		4FEE3BFC29E0630900C562ED /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */; };
 		4FEE3BFE29E064D100C562ED /* SetupNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		4F82B2F329AF907100C1DD10 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4F88E87E29DAD955007A4367 /* MyTokensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTokensViewController.swift; sourceTree = "<group>"; };
 		4F88E88029DAD974007A4367 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		4F8B5DBB29E70C4E0026AAFE /* BuyTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTokenViewController.swift; sourceTree = "<group>"; };
 		4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNotificationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,8 +112,6 @@
 				4F69D0AB29B79DB80008489A /* PutMoney */,
 				4F69D0AA29B79D920008489A /* TransactionLog */,
 				4F5D4FDE29AE4063003EFAA1 /* HomeViewController.swift */,
-				4F69D0AE29B7AF410008489A /* TokenTableViewCell.swift */,
-				4F5F2A3C29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -120,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				4F82B2F129AF906400C1DD10 /* OperationsViewController.swift */,
+				4F8B5DBB29E70C4E0026AAFE /* BuyTokenViewController.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -231,6 +232,8 @@
 		4F88E87B29DAD8AD007A4367 /* Deprecated&Unused */ = {
 			isa = PBXGroup;
 			children = (
+				4F5F2A3C29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift */,
+				4F69D0AE29B7AF410008489A /* TokenTableViewCell.swift */,
 				4F69D0AC29B7AC1D0008489A /* TokensWidget.swift */,
 				4F5F2A3A29BA6AED00D38E21 /* PaymentCalendarWidget.swift */,
 				4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */,
@@ -390,6 +393,7 @@
 				4F44607129B1E32B000E0FAD /* AccountBalanceWidget.swift in Sources */,
 				4F07107C29B20C1D00F62899 /* TransactionLogViewController.swift in Sources */,
 				4F44607729B1F54A000E0FAD /* AppConstants.swift in Sources */,
+				4F8B5DBC29E70C4E0026AAFE /* BuyTokenViewController.swift in Sources */,
 				4F69D0AD29B7AC1D0008489A /* TokensWidget.swift in Sources */,
 				4F82B2F429AF907100C1DD10 /* ProfileViewController.swift in Sources */,
 				4F69D0AF29B7AF410008489A /* TokenTableViewCell.swift in Sources */,

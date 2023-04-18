@@ -89,7 +89,8 @@ class OperationsViewController: UIViewController {
 
 extension OperationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let buyTokenViewController = BuyTokenViewController()
+        navigationController?.pushViewController(buyTokenViewController, animated: true)
     }
 }
 
