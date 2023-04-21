@@ -1,13 +1,13 @@
 //
-//  EnterEmailViewController.swift
+//  EnterCodeViewController.swift
 //  Application
 //
-//  Created by Максим Кузнецов on 18.04.2023.
+//  Created by Максим Кузнецов on 21.04.2023.
 //
 
 import UIKit
 
-class EnterEmailViewController: UIViewController {
+class EnterCodeViewController: UIViewController {
     
     // MARK: - Properties.
     
@@ -57,7 +57,7 @@ class EnterEmailViewController: UIViewController {
     // MARK: - setupNavBar function.
     
     private func setupNavBar() {
-        title = "Sign in"
+        title = "Enter code"
     }
     
     // MARK: - Setup Views.
@@ -84,7 +84,7 @@ class EnterEmailViewController: UIViewController {
         textLabel.pinBottom(to: paddingView, 5)
         textLabel.pinLeft(to: paddingView, 10)
         textLabel.pinRight(to: paddingView, 5)
-        textLabel.text = "Email:"
+        textLabel.text = "Code:"
         textLabel.textAlignment = .left
         textLabel.textColor = .label
         textLabel.font = .systemFont(ofSize: 18, weight: .medium)
@@ -95,7 +95,7 @@ class EnterEmailViewController: UIViewController {
         textField.keyboardType = .emailAddress
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
-        textField.placeholder = "example@email.com"
+        textField.placeholder = "123456"
         textField.addTarget(self, action: #selector(textFieldDidChange), for: .allEditingEvents)
     }
     
@@ -118,8 +118,9 @@ class EnterEmailViewController: UIViewController {
     
     @objc
     private func textFieldDidChange(_ sender: UITextField) {
-        if textField.text!.isEmail {
+        if textField.text!.count > 0 {
             submitButton.isEnabled = true
+            textField.tintColor = .tintColor
         } else {
             submitButton.isEnabled = false
         }
@@ -129,7 +130,22 @@ class EnterEmailViewController: UIViewController {
     
     @objc
     private func submitButtonPressed() {
-        let enterCodeViewController = EnterCodeViewController()
-        navigationController?.pushViewController(enterCodeViewController, animated: true)
+        if textField.text! == "123456" {
+            let tabBarController = UITabBarController()
+            tabBarController.tabBar.isTranslucent = true
+            tabBarController.viewControllers = [
+                SceneDelegate.createHomeViewController(),
+                SceneDelegate.createOperationsViewController(),
+                SceneDelegate.createProfileViewController()
+            ]
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(
+            UINavigationController(rootViewController: tabBarController))
+        } else {
+            submitButton.isEnabled = false
+            textField.tintColor = .red
+            textField.text = ""
+            textField.placeholder = "Incorrect code, try again"
+        }
     }
 }
+

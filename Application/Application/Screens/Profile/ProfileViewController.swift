@@ -99,6 +99,14 @@ extension ProfileViewController: UITableViewDelegate {
                 let setupNotificationsViewController = SetupNotificationsViewController()
                 navigationController?.pushViewController(setupNotificationsViewController, animated: true)
             }
+        } else if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(
+                    UINavigationController(
+                        rootViewController: WelcomeViewController()
+                    )
+                )
+            }
         }
     }
 }
@@ -110,7 +118,7 @@ extension ProfileViewController : UITableViewDataSource {
     // MARK: - Setup number of sections.
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     // MARK: - Setup cells number.
@@ -161,6 +169,14 @@ extension ProfileViewController : UITableViewDataSource {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
                 customizeCell(cell: cell, text: "Setup notifications", image: UIImage(systemName: "bell.circle.fill")!)
+                return cell
+            }
+        case 2:
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
+                customizeCell(cell: cell, text: "Log out", image: UIImage(systemName: "rectangle.portrait.and.arrow.right")!)
+                cell.accessoryType = .none
+                cell.contentView.tintColor = .red
                 return cell
             }
         default:

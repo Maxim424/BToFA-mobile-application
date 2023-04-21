@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4F07107C29B20C1D00F62899 /* TransactionLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F07107B29B20C1D00F62899 /* TransactionLogViewController.swift */; };
 		4F07107E29B212DD00F62899 /* PutMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F07107D29B212DD00F62899 /* PutMoneyViewController.swift */; };
+		4F29F14D29F2859600E60A00 /* EnterCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F29F14C29F2859600E60A00 /* EnterCodeViewController.swift */; };
 		4F44607129B1E32B000E0FAD /* AccountBalanceWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */; };
 		4F44607529B1E54B000E0FAD /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44607429B1E54B000E0FAD /* UIView+Pin.swift */; };
 		4F44607729B1F54A000E0FAD /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F44607629B1F54A000E0FAD /* AppConstants.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		4F07107B29B20C1D00F62899 /* TransactionLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLogViewController.swift; sourceTree = "<group>"; };
 		4F07107D29B212DD00F62899 /* PutMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutMoneyViewController.swift; sourceTree = "<group>"; };
+		4F29F14C29F2859600E60A00 /* EnterCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterCodeViewController.swift; sourceTree = "<group>"; };
 		4F44607029B1E32B000E0FAD /* AccountBalanceWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBalanceWidget.swift; sourceTree = "<group>"; };
 		4F44607429B1E54B000E0FAD /* UIView+Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
 		4F44607629B1F54A000E0FAD /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			children = (
 				4FFAF13E29EED5CE009E8CE0 /* WelcomeViewController.swift */,
 				4FFAF14029EEE1AB009E8CE0 /* EnterEmailViewController.swift */,
+				4F29F14C29F2859600E60A00 /* EnterCodeViewController.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F29F14D29F2859600E60A00 /* EnterCodeViewController.swift in Sources */,
 				4F88E88129DAD974007A4367 /* CalendarViewController.swift in Sources */,
 				4F5F2A3D29BA6B7D00D38E21 /* PaymentCalendarTableViewCell.swift in Sources */,
 				4F82B2F229AF906400C1DD10 /* OperationsViewController.swift in Sources */,

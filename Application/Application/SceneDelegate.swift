@@ -71,7 +71,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         UIView.transition(with: window,
                           duration: 0.5,
-                          options: [.curveEaseIn],
+                          options: [.transitionFlipFromBottom],
                               animations: nil,
                               completion: nil)
     }
