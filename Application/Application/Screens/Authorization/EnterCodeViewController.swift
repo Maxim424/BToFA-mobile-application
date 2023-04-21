@@ -92,7 +92,7 @@ class EnterCodeViewController: UIViewController {
         textField.leftViewMode = .always
         textField.backgroundColor = .systemBackground
         textField.layer.cornerRadius = 10
-        textField.keyboardType = .emailAddress
+        textField.keyboardType = .asciiCapableNumberPad
         textField.returnKeyType = UIReturnKeyType.done
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
         textField.placeholder = "123456"

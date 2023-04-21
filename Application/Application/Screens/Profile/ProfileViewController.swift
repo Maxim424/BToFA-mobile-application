@@ -191,6 +191,7 @@ extension ProfileViewController : UITableViewDataSource {
         content.image = image
         cell.contentConfiguration = content
         cell.accessoryType = .disclosureIndicator
+        cell.contentView.tintColor = .tintColor
     }
 }
 
