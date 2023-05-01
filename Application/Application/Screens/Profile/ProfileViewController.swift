@@ -90,9 +90,12 @@ class ProfileViewController: UIViewController {
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            if indexPath.row == 1 {
-                let editProfileViewController = EditProfileViewController()
-                navigationController?.pushViewController(editProfileViewController, animated: true)
+            if indexPath.row == 0 {
+                UIPasteboard.general.string = UserDefaults.standard.string(forKey: "address")
+                let popoverContent = PopoverViewController()
+                popoverContent.setText(text: "Public address copied")
+                presentPopover(self, popoverContent, sender: tableView.cellForRow(at: .init(row: 0, section: 0)) ?? tableView, size: CGSize(width: 200, height: 40), arrowDirection: .up)
+                
             }
         } else if indexPath.section == 1 {
             if indexPath.row == 0 {
@@ -101,6 +104,8 @@ extension ProfileViewController: UITableViewDelegate {
             }
         } else if indexPath.section == 2 {
             if indexPath.row == 0 {
+                UserDefaults.standard.removeObject(forKey: "address")
+                UserDefaults.standard.removeObject(forKey: "expirationNotification")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(
                     UINavigationController(
                         rootViewController: WelcomeViewController()
@@ -126,7 +131,7 @@ extension ProfileViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 2
+            return 1
         case 1:
             return 1
         default:
@@ -151,18 +156,17 @@ extension ProfileViewController : UITableViewDataSource {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
                 var content = cell.defaultContentConfiguration()
-                content.image = UIImage(systemName: "person.crop.circle.fill")
-                content.text = "Name Surname"
-                content.secondaryText = "email@email.com"
+                content.image = UIImage(systemName: "rectangle.on.rectangle.circle.fill")
+                content.text = "Public address"
+                let str = UserDefaults.standard.string(forKey: "address") ?? ""
+                let start = str.index(str.startIndex, offsetBy: 12)
+                let end = str.index(str.endIndex, offsetBy: -12)
+                let result = str[...start] + " ... " + str[end...]
+                content.secondaryText = String(result)
                 content.textProperties.font = .boldSystemFont(ofSize: 18)
-                content.secondaryTextProperties.font = .systemFont(ofSize: 18)
                 cell.accessoryType = .none
                 cell.selectionStyle = .none
                 cell.contentConfiguration = content
-                return cell
-            } else if indexPath.row == 1 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "profileCell", for: indexPath)
-                customizeCell(cell: cell, text: "Edit profile", image: UIImage(systemName: "pencil.circle.fill")!)
                 return cell
             }
         case 1:
@@ -184,6 +188,8 @@ extension ProfileViewController : UITableViewDataSource {
         }
         return UITableViewCell()
     }
+    
+    // MARK: - customizeCell function.
     
     private func customizeCell(cell: UITableViewCell, text: String, image: UIImage) {
         var content = cell.defaultContentConfiguration()

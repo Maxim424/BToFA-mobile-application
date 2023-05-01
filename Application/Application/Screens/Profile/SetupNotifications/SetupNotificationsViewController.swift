@@ -122,10 +122,11 @@ extension SetupNotificationsViewController : UITableViewDataSource {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
                 var content = cell.defaultContentConfiguration()
-                content.text = "Dividend notifications"
+                content.text = "Token expiration"
                 cell.contentConfiguration = content
                 let switchView = UISwitch(frame: .zero)
-                switchView.setOn(false, animated: true)
+                switchView.setOn(UserDefaults.standard.bool(forKey: "expirationNotification"), animated: true)
+                switchView.addTarget(self, action: #selector(switchValueChanged), for: .valueChanged)
                 cell.accessoryView = switchView
                 return cell
             }
@@ -133,6 +134,13 @@ extension SetupNotificationsViewController : UITableViewDataSource {
             return UITableViewCell()
         }
         return UITableViewCell()
+    }
+    
+    // MARK: - switchValueChanged function.
+    
+    @objc
+    func switchValueChanged(switchView: UISwitch) {
+        UserDefaults.standard.set(switchView.isOn, forKey: "expirationNotification")
     }
 }
 

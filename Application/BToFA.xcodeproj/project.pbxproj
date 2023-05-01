@@ -29,6 +29,9 @@
 		4F88E87F29DAD955007A4367 /* MyTokensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F88E87E29DAD955007A4367 /* MyTokensViewController.swift */; };
 		4F88E88129DAD974007A4367 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F88E88029DAD974007A4367 /* CalendarViewController.swift */; };
 		4F8B5DBC29E70C4E0026AAFE /* BuyTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8B5DBB29E70C4E0026AAFE /* BuyTokenViewController.swift */; };
+		4F94546C29F67EB90047FA34 /* Glaip in Frameworks */ = {isa = PBXBuildFile; productRef = 4F94546B29F67EB90047FA34 /* Glaip */; };
+		4FC4A1BC29FBBAF100A1CD50 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4A1BB29FBBAF100A1CD50 /* PopoverViewController.swift */; };
+		4FC4A1BE29FBBC1B00A1CD50 /* UIViewController+adaptivePresentationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4A1BD29FBBC1B00A1CD50 /* UIViewController+adaptivePresentationStyle.swift */; };
 		4FEE3BFC29E0630900C562ED /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */; };
 		4FEE3BFE29E064D100C562ED /* SetupNotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */; };
 		4FFAF13929EEB789009E8CE0 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFAF13829EEB789009E8CE0 /* TokenModel.swift */; };
@@ -81,6 +84,8 @@
 		4F88E87E29DAD955007A4367 /* MyTokensViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTokensViewController.swift; sourceTree = "<group>"; };
 		4F88E88029DAD974007A4367 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		4F8B5DBB29E70C4E0026AAFE /* BuyTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyTokenViewController.swift; sourceTree = "<group>"; };
+		4FC4A1BB29FBBAF100A1CD50 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		4FC4A1BD29FBBC1B00A1CD50 /* UIViewController+adaptivePresentationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+adaptivePresentationStyle.swift"; sourceTree = "<group>"; };
 		4FEE3BFB29E0630900C562ED /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		4FEE3BFD29E064D100C562ED /* SetupNotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNotificationsViewController.swift; sourceTree = "<group>"; };
 		4FFAF13829EEB789009E8CE0 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F94546C29F67EB90047FA34 /* Glaip in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +147,7 @@
 				4FFAF13B29EEC0F5009E8CE0 /* SetupNotifications */,
 				4FFAF13A29EEC0E2009E8CE0 /* EditProfile */,
 				4F82B2F329AF907100C1DD10 /* ProfileViewController.swift */,
+				4FC4A1BB29FBBAF100A1CD50 /* PopoverViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -316,6 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				4FFAF14329EEE65E009E8CE0 /* String+isEmail.swift */,
+				4FC4A1BD29FBBC1B00A1CD50 /* UIViewController+adaptivePresentationStyle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -336,6 +344,9 @@
 			dependencies = (
 			);
 			name = Application;
+			packageProductDependencies = (
+				4F94546B29F67EB90047FA34 /* Glaip */,
+			);
 			productName = Application;
 			productReference = 4F5D4FD729AE4063003EFAA1 /* Application.app */;
 			productType = "com.apple.product-type.application";
@@ -408,6 +419,9 @@
 				Base,
 			);
 			mainGroup = 4F5D4FCE29AE4063003EFAA1;
+			packageReferences = (
+				4F94546A29F67EB90047FA34 /* XCRemoteSwiftPackageReference "Glaip" */,
+			);
 			productRefGroup = 4F5D4FD829AE4063003EFAA1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -456,10 +470,12 @@
 				4FFAF14429EEE65E009E8CE0 /* String+isEmail.swift in Sources */,
 				4F5D4FDF29AE4063003EFAA1 /* HomeViewController.swift in Sources */,
 				4FFAF14129EEE1AB009E8CE0 /* EnterEmailViewController.swift in Sources */,
+				4FC4A1BC29FBBAF100A1CD50 /* PopoverViewController.swift in Sources */,
 				4F44607129B1E32B000E0FAD /* AccountBalanceWidget.swift in Sources */,
 				4FFAF13F29EED5CE009E8CE0 /* WelcomeViewController.swift in Sources */,
 				4F07107C29B20C1D00F62899 /* TransactionLogViewController.swift in Sources */,
 				4F44607729B1F54A000E0FAD /* AppConstants.swift in Sources */,
+				4FC4A1BE29FBBC1B00A1CD50 /* UIViewController+adaptivePresentationStyle.swift in Sources */,
 				4F8B5DBC29E70C4E0026AAFE /* BuyTokenViewController.swift in Sources */,
 				4F69D0AD29B7AC1D0008489A /* TokensWidget.swift in Sources */,
 				4F82B2F429AF907100C1DD10 /* ProfileViewController.swift in Sources */,
@@ -793,6 +809,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F94546A29F67EB90047FA34 /* XCRemoteSwiftPackageReference "Glaip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maurovz/Glaip.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F94546B29F67EB90047FA34 /* Glaip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F94546A29F67EB90047FA34 /* XCRemoteSwiftPackageReference "Glaip" */;
+			productName = Glaip;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4F5D4FCF29AE4063003EFAA1 /* Project object */;
 }

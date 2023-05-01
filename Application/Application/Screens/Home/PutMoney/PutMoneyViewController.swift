@@ -101,6 +101,8 @@ class PutMoneyViewController: UIViewController {
     
     @objc
     private func submitButtonPressed() {
+        let money = UserDefaults.standard.integer(forKey: "account")
+        UserDefaults.standard.set(money + ((textField.text as? NSString)?.integerValue ?? 0), forKey: "account")
         navigationController?.popViewController(animated: true)
     }
 }

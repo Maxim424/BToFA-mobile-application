@@ -178,7 +178,7 @@ extension HomeViewController : UITableViewDataSource {
                 var content = cell.defaultContentConfiguration()
                 content.image = UIImage(systemName: "briefcase.circle.fill")
                 content.text = "Account"
-                content.secondaryText = "1000 ₽"
+                content.secondaryText = String(UserDefaults.standard.integer(forKey: "account")) + " ₽"
                 content.textProperties.font = .boldSystemFont(ofSize: 18)
                 content.secondaryTextProperties.font = .systemFont(ofSize: 18)
                 cell.accessoryType = .none

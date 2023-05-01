@@ -16,15 +16,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
 
-        let tabBarController = UITabBarController()
-        tabBarController.tabBar.isTranslucent = true
-        tabBarController.viewControllers = [
-            SceneDelegate.createHomeViewController(),
-            SceneDelegate.createOperationsViewController(),
-            SceneDelegate.createProfileViewController()
-        ]
-//        window.rootViewController = UINavigationController(rootViewController: tabBarController)
-        window.rootViewController = UINavigationController(rootViewController: WelcomeViewController())
+        if UserDefaults.standard.string(forKey: "address") != nil {
+            let tabBarController = UITabBarController()
+            tabBarController.tabBar.isTranslucent = true
+            tabBarController.viewControllers = [
+                SceneDelegate.createHomeViewController(),
+                SceneDelegate.createOperationsViewController(),
+                SceneDelegate.createProfileViewController()
+            ]
+            window.rootViewController = UINavigationController(rootViewController: tabBarController)
+        } else {
+            window.rootViewController = UINavigationController(rootViewController: WelcomeViewController())
+        }
+        
         self.window = window
         window.makeKeyAndVisible()
     }
